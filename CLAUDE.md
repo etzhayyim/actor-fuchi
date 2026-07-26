@@ -25,9 +25,27 @@ public-person?(p,t) ≔ covenant?(p,t) ∧ receives-ss?(p,t) ∧ ¬exit-suspende
 - **PUBLIC**: DID, covenant, stage, rails, imputed **facts**, disclosure-status, hold-reason
 - **SCORE**: empty (no leaderboard)
 - Disclosure fail → **hold** entitlements; history retained on exit
-- SSoT: `data/public-person-dynamic.edn` + `src/fuchi/methods/public_person.cljc`
-- L0 offline enroll: `src/fuchi/methods/l0_enroll.cljc` (triple-permanent stubs only; no live mint)
-- Disclosure continuity: `src/fuchi/methods/disclosure_hold.cljc` (open/held/exit-suspended)
+- SSoT: `data/public-person-dynamic.edn` + `methods/public_person.cljc`
+- L0 offline enroll: `methods/l0_enroll.cljc` (triple-permanent stubs only; no live mint)
+- Disclosure continuity: `methods/disclosure_hold.cljc` (open/held/exit-suspended)
+- Offline priority ladder paths (robotics/itonami SS scaffold): nine paths in
+  `PRIORITY-PATH-CATALOG` / `data/l0-offline-priority-paths-design.edn` — all embed
+  priority-(2) held-stress (stale disclosure → ladder refuse). Surfaces:
+  scorecard / public / audit / pages_deploy. cash≡0; live refuse; no scores.
+- All-seven single-rail R1→gated DESIGN facts (`design-public-facts` on each
+  `rail_*.cljc`) + discovery catalog `rail-design-catalog-fact` /
+  `data/rail-design-catalog.edn` — order care→housing→food→energy→tooling→
+  compute→liquidity; live-produce never; loan/land-grant never. Scorecard keys
+  `:scorecard/rail-*-design` + `:scorecard/rail-design-catalog`; public report
+  mirrors. Land when terminal works: `nbb methods/_land_ss_gated_wip.cljs`.
+- Displacement→L0 (`methods/displacement_l0_path.cljc`): funded itonami surplus →
+  L0 enroll → L4 multi-gen (care/housing first) + vocation rails R1→gated refuse;
+  default embeds held-stress per subject (ladder refuse when disclosure stale).
+  Tenure climb (`displacement_tenure.cljc`) carries L0 held-stress into L5/L6;
+  gov packaging (`displacement_gov.cljc` package-subject) preserves held-stress on
+  council/gov rows for audit/scorecard. Readiness map:
+  `data/itonami-offline-ss-readiness.edn` + `data/l0-offline-priority-paths-design.edn`
+  + `data/rail-design-catalog.edn`.
 
 ## What this actor is (and is NOT)
 
@@ -52,7 +70,7 @@ public-person?(p,t) ≔ covenant?(p,t) ∧ receives-ss?(p,t) ∧ ¬exit-suspende
   or let a cell/operator decide accept/reject. The vote / Council decides.
 - **G9 no-server-key** — `:alloc/server-held-key` is `:db/allowed [false]` (ADR-2605231525).
 - **G8 Murakumo-only** inference; **G10 outward-gated** — every live leg goes through
-  `src/fuchi/src/fuchi/methods/live_gate.cljc` and **REFUSES by default**. A live `provision`/`vote`/`book`/`couple`
+  `methods/live_gate.cljc` and **REFUSES by default**. A live `provision`/`vote`/`book`/`couple`
   fires only when the operator flag `FUCHI_ALLOW_LIVE_<LEG>=1` + an operator attestation +
   Council Lv6+ (Lv7+ for `couple`) + a member signature are ALL present. Never let the gate relax
   cash≡0 / no-server-key / in-kind-only / the vote timelock / the G2 funded-cohort gate — it is an
@@ -60,11 +78,19 @@ public-person?(p,t) ≔ covenant?(p,t) ∧ receives-ss?(p,t) ∧ ¬exit-suspende
 
 ## When extending
 
-- Reuse the Displacement-Dividend curve (`50-infra/etzhayyim-public-fund/displacement/allocate.py`)
+- Reuse the Displacement-Dividend curve (etzhayyim public-fund displacement allocate path)
   — do not invent a second tenure formula.
 - New in-kind needs → add an `:envelope/line` + a rail in `LINE_TO_RAIL`, mapped to a **producing
   actor** (mitsuho/hikari/okaimono/iyashi/commons-land/warifu). Never add a rail that pays cash.
-- Keep tests green: `bb test` (174 tests). The `test_charter_invariants.py` suite parses the
+- Keep tests green: `nbb -cp . run_tests.cljs` (nbb in-process; ADR-2607173000; no bash / no bb).
+  Readiness / priority stack SSoT:
+  `nbb -cp . methods/readiness_check.cljs` then
+  `nbb -cp . methods/priority_stack_smoke.cljs` (L0 + disclosure + mitsuho R1→gated).
+  Regenerate full offline package (portable under nbb):
+  `nbb -cp . methods/write_all.cljs`
+  (or `write-all!` via `fuchi.methods.displacement-pipeline` / pages-deploy package).
+  Publish host: `nbb methods/publish.cljs`. Land: `nbb methods/_land_ss_gated_wip.cljs`.
+  The `test_charter_invariants.cljc` suite parses the
   ontology + lexicons + code and will fail if an invariant drifts out of any of the three places —
   including the R1-live locks (every leg refused by default; `couple` is Lv7).
 

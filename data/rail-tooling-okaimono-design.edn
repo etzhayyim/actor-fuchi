@@ -23,6 +23,12 @@
   "not-a-happiness-score"
   "tooling-is-wellbecoming-substrate"
   "fulfillment-not-invoked"]
+ :rail/care-first-order
+ {:api-path "vocation-recovery-path"
+  :before-rails ["care" "housing"]
+  :vocation-recovery true
+  :fulfillment-executed false
+  :live-produce false}
  :rail/hold-coupling
  {:on-disclosure-held :refuse-dispatch
   :on-exit-suspended :refuse-dispatch

@@ -1,11 +1,12 @@
-{:paths ["src"]
- :deps {com.etzhayyim/social-publication
-        {:git/url "https://github.com/etzhayyim/com-etzhayyim-social-publication.git"
-         :git/sha "e8127d0661284b1c12ce1b216c84b5ed2db619ab"}}
+;; fuchi — dual layout classpath
+;; - Local / agent WIP: methods/ at repo root (+ self-symlink fuchi/ → .)
+;; - GitHub main tip: src/fuchi/methods/ (ns still fuchi.methods.*)
+;; nbb: nbb -cp . methods/… or nbb -cp '.:src' …
+{:paths ["src" "."]
  :aliases
  {:test {:extra-paths ["test"]
          :extra-deps {io.github.cognitect-labs/test-runner
                       {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
          :main-opts ["-m" "cognitect.test-runner"]}
   :lint {:replace-deps {clj-kondo/clj-kondo {:mvn/version "2024.11.14"}}
-         :main-opts    ["-m" "clj-kondo.main" "--lint" "src" "test" "--fail-level" "error"]}}}
+         :main-opts    ["-m" "clj-kondo.main" "--lint" "src" "test" "methods" "--fail-level" "error"]}}}
