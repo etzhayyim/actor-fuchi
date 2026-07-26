@@ -1,0 +1,64 @@
+;; l0-offline-priority-paths-design.edn — machine-readable index of offline
+;; ladder-path smokes for robotics/itonami × etzhayyim covenantal SS (ADR-2607177000).
+;; Source of truth for path IDs is also fuchi.methods.l0-enroll/PRIORITY-PATH-CATALOG.
+;; cash≡0 · live default refuse · no personal scores · loan/land-grant never from scaffold.
+{:design/id "fuchi.l0-offline-priority-paths"
+ :design/adr ["2607177000" "2606052300" "2605261000"]
+ :design/priority-stack [:wellbecoming :mago-wellbecoming :ko-wellbecoming :present-adherent :operational]
+ :design/invariants
+ {:cash-usd-micros 0
+  :live false
+  :score-surface []
+  :loan-never true
+  :land-grant-never true
+  :public-person-facts-only true
+  :default-refuse true}
+
+ :design/priority-order
+ [(1 "L0 enroll offline scaffold (draft-vow → triple CID stubs → public-person)")
+  (2 "disclosure hold + continuity SM (open/held/exit-suspended; stale/falsehood stresses)")
+  (3 "rails R1→gated-live DESIGN (care/housing first 孫/子, then food/energy, vocation, residual)")]
+
+ :design/paths
+ [{:id "care-first-mitsuho" :api "care-first-mitsuho-path" :rails ["care" "food"]
+   :held-stress-embed true}
+  {:id "care-first-hikari" :api "care-first-hikari-path" :rails ["care" "energy"]
+   :held-stress-embed true}
+  {:id "care-first-mitsuho-hikari" :api "care-first-mitsuho-hikari-path"
+   :rails ["care" "food" "energy"] :held-stress-embed true}
+  {:id "care-housing-first" :api "care-housing-first-path" :rails ["care" "housing"]
+   :held-stress-embed true}
+  {:id "multi-gen-substrate" :api "multi-gen-substrate-path"
+   :rails ["care" "housing" "food" "energy"] :held-stress-embed true}
+  {:id "full-inkind-substrate" :api "full-inkind-substrate-path"
+   :rails ["care" "housing" "food" "energy" "tooling" "compute"]
+   :held-stress-embed true}
+  {:id "vocation-recovery" :api "vocation-recovery-path" :rails ["tooling" "compute"]
+   :held-stress-embed true}
+  {:id "liquidity-residual" :api "liquidity-residual-path" :rails ["liquidity"]
+   :member-principal true :loan-executed false :held-stress-embed true}
+  {:id "all-seven-substrate" :api "all-seven-substrate-path"
+   :rails ["care" "housing" "food" "energy" "tooling" "compute" "liquidity"]
+   :role "capstone" :held-stress-embed true}]
+
+ :design/held-stress
+ "Any path with stale disclosure at enroll → disclosure held, entitlements may not flow,
+  ladder advance refused, membranes refuse; public-person facts may remain; cash≡0.
+  All :design/paths have :held-stress-embed true (PRIORITY-PATH-CATALOG parity)."
+
+ :design/related
+ ["enroll-with-all-seven-rails" "ss_offline_path/run-food-path"
+  "displacement_l0_path" "displacement_tenure" "displacement_gov"
+  "displacement_pipeline" "displacement_scorecard" "pipeline_audit_ledger"
+  "public_surface_report" "pages_deploy"]
+
+ ;; itonami job-loss × covenantal SS offline E2E (facts only; live refuse)
+ :design/itonami-offline-pipeline
+ {:order ["L0 enroll" "disclosure SM" "L4 multi-gen floors" "held-stress embed"
+          "tenure L6 carry" "G7 gov package-subject carry" "scorecard/audit/public"]
+  :held-stress-surfaces
+  [:subject :tenure-subject :gov-row :package-batch
+   :scorecard :audit-ledger :pipeline-top :public-md-html :pages-deploy-readme]
+  :invariants {:cash-usd-micros 0 :live false :score-surface []
+               :loan-never true :land-grant-never true}
+  :land "nbb methods/_land_ss_gated_wip.cljs when terminal available"}}

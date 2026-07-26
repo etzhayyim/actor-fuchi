@@ -1,0 +1,60 @@
+;; priority-stack-design.edn — offline SSoT design for robotics/itonami × etzhayyim SS
+;; priorities (1)(2)(3). Implementation: methods/priority_stack.cljc.
+;; Not live. cash≡0 · score empty · live default refuse · public-person facts only.
+{:design/id "fuchi.priority-stack-offline"
+ :design/adr ["2607181200" "2607177000" "2606052300" "2606032130"]
+ :design/priority-stack [:wellbecoming :mago-wellbecoming :ko-wellbecoming :present-adherent :operational]
+ :design/module "methods/priority_stack.cljc"
+ :design/api "run-offline"
+ :design/public-facts-api "public-facts"
+ :design/l0-paths-design "data/l0-offline-priority-paths-design.edn"
+ :design/cash-usd-micros 0
+ :design/live false
+ :design/score-surface []
+ :design/loan-never true
+ :design/land-grant-never true
+ :design/default-refuse true
+
+ :design/priority-order
+ [{:n 1
+   :id "l0-enroll-offline"
+   :label "L0 enroll offline scaffold"
+   :modules ["methods/l0_enroll.cljc"]
+   :must ["draft-vow" "triple-permanent stubs" "L0 entitlement" "public-person facts"]
+   :never ["live mint" "published=true" "cash" "scores"]}
+  {:n 2
+   :id "disclosure-hold-continuity"
+   :label "disclosure hold + continuity SM + held-stress"
+   :modules ["methods/disclosure_hold.cljc" "methods/disclosure_continuity.cljc"]
+   :must ["open→held on stale" "tick-series fresh→stale→fresh reopen" "continuity-stress held-steps"]
+   :never ["scores" "cash" "live rail execute"]}
+  {:n 3
+   :id "care-housing-mitsuho-hikari-all-seven-design"
+   :label "care-housing → mitsuho+hikari DESIGN → all-seven substrate (孫/子 first)"
+   :modules ["methods/l0_enroll.cljc" "methods/rail_mitsuho.cljc" "methods/rail_hikari.cljc"]
+   :must ["care-housing-first-path" "care-housing both refuse" "land-grant never"
+          "mitsuho R1-dry" "hikari R1-dry" "both gated default refuse"
+          "care-first-mitsuho-path" "care-first-hikari-path"
+          "care-first-before-rails [care housing]" "held-stress ladder refuse embed"
+          "all-seven-substrate-path" "all-seven membrane refuse" "loan never"
+          "l0-offline-priority-paths 9 paths held-stress-embed"]
+   :never ["produce-executed" "generate-executed" "live produce" "land-grant" "loan" "cash" "scores"]
+   :design-edn ["data/rail-mitsuho-design.edn" "data/rail-hikari-design.edn"
+                "data/l0-offline-priority-paths-design.edn"]}]
+
+ :design/surfaces
+ ["scorecard/priority-stack-offline"
+  "report/priority-stack-offline"
+  "public/priority-stack-offline.edn"
+  "out/priority-stack-offline.edn"
+  "methods/priority_stack_smoke.cljs"
+  "methods/test_priority_stack.cljc"
+  "methods/pages_publish.cljc write-pages!"]
+
+ :design/invariants
+ {:cash-usd-micros 0
+  :live false
+  :score-surface []
+  :public-person-facts-only true
+  :wellbecoming-before-present true
+  :care-housing-before-food true}}

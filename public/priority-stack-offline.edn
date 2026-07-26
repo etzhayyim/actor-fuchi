@@ -1,0 +1,52 @@
+;; Machine-readable priority stack SSoT (facts only).
+;; Regen: nbb -cp . methods/write_all.cljs  or  pages-publish/write-pages!
+;; design: data/priority-stack-design.edn · api: fuchi.methods.priority-stack/run-offline
+{:path "priority-stack-offline"
+ :priority-order [[1 "L0 enroll offline scaffold"]
+                  [2 "disclosure hold + continuity SM + held-stress"]
+                  [3 "care-housing → mitsuho+hikari DESIGN → all-seven substrate (孫/子 first)"]]
+ :priority-stack [:wellbecoming :mago-wellbecoming :ko-wellbecoming :present-adherent :operational]
+ :design-id "fuchi.priority-stack-offline"
+ :design-order-count 3
+ :l0-paths-design-id "fuchi.l0-offline-priority-paths"
+ :l0-paths-count 9
+ :l0-paths-all-held-stress true
+ :l0-stage "L0"
+ :l0-public-person? true
+ :l0-published false
+ :disclosure-open-may-flow true
+ :disclosure-stale-held true
+ :disclosure-tick-final "open"
+ :disclosure-continuity-held-steps 1
+ :care-housing-api-path "care-housing-first-path"
+ :care-housing-both-refused true
+ :care-housing-land-grant-executed false
+ :care-housing-held-stress-ladder-refused true
+ :mitsuho-r1-phase "R1-dry"
+ :mitsuho-gated-phase "refused"
+ :mitsuho-produce-executed false
+ :mitsuho-care-first-api-path "care-first-mitsuho-path"
+ :mitsuho-care-first-before-rails ["care" "housing"]
+ :mitsuho-held-stress-ladder-refused true
+ :hikari-r1-phase "R1-dry"
+ :hikari-gated-phase "refused"
+ :hikari-produce-executed false
+ :hikari-care-first-api-path "care-first-hikari-path"
+ :hikari-care-first-before-rails ["care" "housing"]
+ :hikari-held-stress-ladder-refused true
+ :all-seven-api-path "all-seven-substrate-path"
+ :all-seven-inkind-refused true
+ :all-seven-membrane-refused true
+ :all-seven-liquidity-refused true
+ :all-seven-loan-executed false
+ :all-seven-land-grant-executed false
+ :all-seven-held-stress-ladder-refused true
+ :ok true
+ :live false
+ :cash-usd-micros 0
+ :score-surface []
+ :loan-never true
+ :land-grant-never true
+ :public-person-facts-only true
+ :default-refuse true
+ :note "hand-seeded until write-pages! regen; (1)(2)(3)care-housing→mitsuho+hikari→all-seven"}
