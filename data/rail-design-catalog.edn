@@ -1,0 +1,53 @@
+;; rail-design-catalog.edn — discovery index of all seven single-rail R1→gated DESIGN
+;; facts for robotics/itonami × etzhayyim covenantal SS (priority 3).
+;; Code SSoT: fuchi.methods.displacement-scorecard/rail-design-catalog-fact
+;; (+ per-rail design-public-facts). cash≡0 · live refuse · live-produce never.
+{:catalog/id "fuchi.rail-design-catalog"
+ :catalog/adr ["2607177000" "2606052300"]
+ :catalog/priority-stack [:wellbecoming :mago-wellbecoming :ko-wellbecoming :present-adherent :operational]
+ :catalog/order
+ ["care-iyashi" "housing-commons" "food-mitsuho" "energy-hikari"
+  "tooling-okaimono" "compute-murakumo" "liquidity-warifu"]
+ :catalog/rail-count 7
+ :catalog/invariants
+ {:cash-usd-micros 0
+  :live false
+  :score-surface []
+  :live-produce-never true
+  :loan-never true
+  :land-grant-never true
+  :public-person-facts-only true
+  :all-seven-design true}
+ :catalog/rails
+ [{:id "rail-care-iyashi-design" :rail-kind "care-iyashi" :order 1
+   :care-first-api-path "care-housing-first-path" :multi-gen-first true
+   :care-delivery-executed false :live-produce false}
+  {:id "rail-housing-commons-design" :rail-kind "housing-commons" :order 2
+   :care-first-api-path "care-housing-first-path" :care-first-before ["care"]
+   :land-grant-executed false :live-produce false}
+  {:id "rail-mitsuho-design" :rail-kind "food-mitsuho" :order 3
+   :care-first-api-path "care-first-mitsuho-path"
+   :care-first-before ["care" "housing"]
+   :produce-executed false :live-produce false}
+  {:id "rail-hikari-design" :rail-kind "energy-hikari" :order 4
+   :care-first-api-path "care-first-hikari-path"
+   :care-first-before ["care" "housing"]
+   :generate-executed false :live-produce false}
+  {:id "rail-tooling-okaimono-design" :rail-kind "tooling-okaimono" :order 5
+   :care-first-api-path "vocation-recovery-path"
+   :care-first-before ["care" "housing"]
+   :vocation-recovery true :fulfillment-executed false :live-produce false}
+  {:id "rail-compute-murakumo-design" :rail-kind "compute-murakumo" :order 6
+   :care-first-api-path "vocation-recovery-path"
+   :care-first-before ["care" "housing"]
+   :vocation-recovery true :quota-executed false :live-produce false}
+  {:id "rail-liquidity-warifu-design" :rail-kind "liquidity-warifu" :order 7
+   :care-first-api-path "liquidity-residual-path"
+   :care-first-before ["care" "housing"]
+   :residual-rail true :member-principal true
+   :loan-executed false :live-produce false :cash-usd-micros 0}]
+ :catalog/scorecard-key :scorecard/rail-design-catalog
+ :catalog/report-key :report/rail-design-catalog
+ :catalog/related
+ ["displacement_scorecard" "public_surface_report" "pipeline_audit_ledger"
+  "rail-*-design.edn" "itonami-offline-ss-readiness.edn"]}

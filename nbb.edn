@@ -1,0 +1,5 @@
+;; ADR-2607173000 — nbb-only script host (no bb.edn).
+;; Prefer: nbb -cp . methods/priority_stack_smoke.cljs
+;;         nbb -cp . run_tests.cljs
+;;         nbb -cp . methods/readiness_check.cljs
+{:paths ["." "src" "test"]}

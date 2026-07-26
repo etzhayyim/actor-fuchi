@@ -1,0 +1,260 @@
+;; itonami-offline-ss-readiness.edn — machine-readable readiness of robotics/itonami
+;; job-loss × etzhayyim covenantal SS offline scaffold (facts only).
+;; Not live telemetry. cash≡0 · live refuse · no personal scores.
+;; Source of truth for path APIs remains l0_enroll + displacement_* modules.
+{:readiness/id "fuchi.itonami-offline-ss"
+ :readiness/adr ["2607181200" "2607177000" "2606052300" "2606032130" "2607173000"]
+ :readiness/priority-stack [:wellbecoming :mago-wellbecoming :ko-wellbecoming :present-adherent :operational]
+ :readiness/status :code-complete-unlanded
+ ;; closing ADR-2607181200: A–F on GitHub main; G–J unlanded
+ ;; 2026-07-18: (3) care-housing→mitsuho+hikari→all-seven; ss_offline embeds SSoT
+ ;; dual classpath: deps.edn/nbb.edn paths src+.; land ENOENT; main tip src/fuchi/
+ :readiness/invariants
+ {:cash-usd-micros 0
+  :live false
+  :score-surface []
+  :loan-never true
+  :land-grant-never true
+  :public-person-facts-only true
+  :default-refuse true}
+
+ :readiness/priority-order
+ [(1 "L0 enroll offline scaffold")
+  (2 "disclosure hold + continuity SM + held-stress embed")
+  (3 "care-housing → mitsuho+hikari DESIGN → all-seven substrate (孫/子 first)")]
+
+ :readiness/layers
+ [{:id :priority-stack-ssot
+   :module "methods/priority_stack.cljc"
+   :design "data/priority-stack-design.edn"
+   :l0-paths-design "data/l0-offline-priority-paths-design.edn"
+   :api "run-offline"
+   :public-facts-api "public-facts"
+   :apis ["run-l0" "run-disclosure" "run-care-housing-substrate"
+          "run-mitsuho-design" "run-hikari-design" "run-all-seven-substrate"
+          "l0-paths-design-invariants"]
+   :static-surface "public/priority-stack-offline.edn"
+   :scorecard-key :scorecard/priority-stack-offline
+   :report-key :report/priority-stack-offline
+   :order [1 2 3]
+   :invariants {:cash-usd-micros 0 :live false :score-surface []
+                :default-refuse true :loan-never true :land-grant-never true}
+   :note "SSoT (1)L0 (2)disclosure (3)care-housing→mitsuho+hikari→all-seven + 9-path held-stress"}
+  {:id :l0-ladder-paths
+   :module "methods/l0_enroll.cljc"
+   :held-stress-embed-count 9
+   :note "PRIORITY-PATH-CATALOG all paths :held-stress-embed true"}
+  {:id :disclosure-sm
+   :modules ["methods/disclosure_hold.cljc" "methods/disclosure_continuity.cljc"]
+   :note "open/held/exit-suspended + stale/falsehood stresses"}
+  {:id :rail-care-r1-gated
+   :module "methods/rail_care_iyashi.cljc"
+   :design "data/rail-care-iyashi-design.edn"
+   :care-first-api "care-housing-first-path"
+   :care-first-order-rank 1
+   :care-delivery-executed false
+   :live-produce false
+   :note "priority (3) multi-gen substrate #1 care R1→gated DESIGN for 孫/子"}
+  {:id :rail-housing-r1-gated
+   :module "methods/rail_housing_commons.cljc"
+   :design "data/rail-housing-commons-design.edn"
+   :care-first-api "care-housing-first-path"
+   :care-first-order-rank 2
+   :care-first-before ["care"]
+   :land-grant-executed false
+   :live-produce false
+   :note "priority (3) multi-gen substrate #2 housing after care; land-grant never"}
+  {:id :rail-mitsuho-r1-gated
+   :module "methods/rail_mitsuho.cljc"
+   :design "data/rail-mitsuho-design.edn"
+   :care-first-api "care-first-mitsuho-path"
+   :care-first-before ["care" "housing"]
+   :live-produce false
+   :note "priority (3) single-rail food R1→gated DESIGN; food after care/housing 孫/子"}
+  {:id :rail-hikari-r1-gated
+   :module "methods/rail_hikari.cljc"
+   :design "data/rail-hikari-design.edn"
+   :care-first-api "care-first-hikari-path"
+   :care-first-before ["care" "housing"]
+   :live-produce false
+   :note "priority (3) single-rail energy R1→gated DESIGN; energy after care/housing 孫/子"}
+  {:id :rail-tooling-r1-gated
+   :module "methods/rail_tooling_okaimono.cljc"
+   :design "data/rail-tooling-okaimono-design.edn"
+   :care-first-api "vocation-recovery-path"
+   :care-first-before ["care" "housing"]
+   :fulfillment-executed false
+   :live-produce false
+   :note "priority (3) vocation tooling after multi-gen; itonami job-loss recovery"}
+  {:id :rail-compute-r1-gated
+   :module "methods/rail_compute_murakumo.cljc"
+   :design "data/rail-compute-murakumo-design.edn"
+   :care-first-api "vocation-recovery-path"
+   :care-first-before ["care" "housing"]
+   :quota-executed false
+   :live-produce false
+   :note "priority (3) vocation compute after multi-gen; mesh quota never live"}
+  {:id :rail-liquidity-r1-gated
+   :module "methods/rail_liquidity_warifu.cljc"
+   :design "data/rail-liquidity-warifu-design.edn"
+   :care-first-api "liquidity-residual-path"
+   :member-principal true
+   :loan-executed false
+   :cash-usd-micros 0
+   :note "priority (3) residual warifu; fuchi never cash creditor"}
+  {:id :ss-offline
+   :module "methods/ss_offline_path.cljc"
+   :embeds-design-public-facts ["care" "housing" "mitsuho" "hikari" "tooling" "compute" "liquidity"]
+   :care-first-order ["care" "housing" "mitsuho" "hikari" "tooling" "compute" "liquidity"]
+   :all-seven-design-embed-count 7
+   :all-seven-design-live-produce-never true
+   :note "L0→ladder L4→stage floors→seven rails; all-seven design-public-facts on priority-path-summary (care→…→liquidity)"}
+  {:id :l0-care-first-design-embed
+   :module "methods/l0_enroll.cljc"
+   :paths ["care-first-mitsuho-path" "care-first-hikari-path"
+           "care-first-mitsuho-hikari-path"]
+   :surfaces ["scorecard-md" "public-surface-md" "public-surface-html"
+              "ss-priority-path-public-fact" "pipeline-audit" "pages-deploy-readme"]
+   :note "priority (1)+(2)+(3): enroll+disclosure held-stress + care then mitsuho/hikari DESIGN on L0/SS/public/audit"}
+  {:id :displacement-l0
+   :module "methods/displacement_l0_path.cljc"
+   :held-stress true
+   :note "funded surplus → L0→L4; per-subject held-stress embed"}
+  {:id :displacement-tenure
+   :module "methods/displacement_tenure.cljc"
+   :held-stress-carried true
+   :note "L4→L6; carries :held-stress from L0 subject"}
+  {:id :displacement-gov
+   :module "methods/displacement_gov.cljc"
+   :held-stress-on-gov-row true
+   :batch-counters [:gov-held-stress-subjects :tenure-gov-held-stress-subjects]
+   :note "G7 package-subject preserves held-stress; package-batch aggregates"}
+  {:id :pipeline
+   :module "methods/displacement_pipeline.cljc"
+   :top-level-keys
+   [:displacement-held-stress-subjects :tenure-held-stress-subjects
+    :gov-held-stress-subjects :tenure-gov-held-stress-subjects]}
+  {:id :scorecard-audit-public
+   :modules ["methods/displacement_scorecard.cljc"
+             "methods/pipeline_audit_ledger.cljc"
+             "methods/public_surface_report.cljc"
+             "methods/pages_deploy.cljc"]
+   :scorecard-keys [:scorecard/rail-care-design :scorecard/rail-housing-design
+                    :scorecard/rail-mitsuho-design :scorecard/rail-hikari-design
+                    :scorecard/rail-tooling-design :scorecard/rail-compute-design
+                    :scorecard/rail-liquidity-design
+                    :scorecard/rail-design-catalog
+                    :scorecard/ss-priority-path]
+   :report-keys [:report/rail-care-design :report/rail-housing-design
+                 :report/rail-mitsuho-design :report/rail-hikari-design
+                 :report/rail-tooling-design :report/rail-compute-design
+                 :report/rail-liquidity-design
+                 :report/rail-design-catalog
+                 :report/ss-priority-path]
+   :ss-priority-path-keys [:all-seven-design-embed-count
+                           :all-seven-design-live-produce-never
+                           :care-live-produce :housing-live-produce
+                           :mitsuho-live-produce :hikari-live-produce
+                           :tooling-live-produce :compute-live-produce
+                           :liquidity-live-produce]
+   :priority-stack-offline-keys [:ok :l0-stage :l0-published
+                                 :disclosure-open-may-flow :disclosure-stale-held
+                                 :disclosure-tick-final
+                                 :mitsuho-r1-phase :mitsuho-gated-phase
+                                 :mitsuho-produce-executed
+                                 :mitsuho-care-first-api-path
+                                 :mitsuho-held-stress-ladder-refused]
+   :catalog "data/rail-design-catalog.edn"
+   :priority-stack-design "data/priority-stack-design.edn"
+   :note "all seven rails DESIGN + priority_stack SSoT (1)(2)(3) on scorecard/public; L4 vs tenure separate"}]
+
+ :readiness/land
+ {:script "methods/_land_ss_gated_wip.cljs"
+  :invoke "nbb methods/_land_ss_gated_wip.cljs"
+  :host "nbb only (ADR-2607173000; no bash land / no .sh entrypoints)"
+  :retired-paths ["methods/_land_ss_gated_wip.sh"
+                  "run_tests.sh"
+                  "methods/publish.bb"]
+  :steps ["nbb methods/_land_ss_gated_wip.cljs"
+          "nbb -cp . methods/readiness_check.cljs (design+static+readiness layer)"
+          "nbb -cp . methods/priority_stack_smoke.cljs (L0+disclosure+held-stress+all-seven)"
+          "nbb -cp . run_tests.cljs (invoked by land; nbb in-process suite, no bb spawn)"
+          "nbb -cp . methods/write_all.cljs (scorecard+audit+surplus+public; + assert ps edn)"
+          "commit methods/ public/ data/ out/ docs README.md MATURITY.md CLAUDE.md"
+          "git rm obsolete .sh/.bb/init.clj entrypoints if still tracked"
+          "push etzhayyim|origin main (ff-only, no force)"
+          "west pin com-etzhayyim-fuchi"]
+  :blocker "agent terminal spawn ENOENT prevents land from loop sessions (parent+subagent)"
+  :static-surface-note "public/{index.html,scorecard.md,README.md} + out/* hand-patched until write-deploy-package! regen on land (nbb-portable)"
+  :code-complete-surfaces
+  ["l0 enroll + disclosure SM + 9 ladder paths (held-stress embed)"
+   "all-seven rail design-public-facts + rail-design-catalog"
+   "all-seven rails load-design + design-edn-invariants portable (care rank1→housing rank2→…)"
+   "ss_offline_path all-seven design embed on priority-path-summary"
+   "displacement pipeline run!/write-all! portable nbb (tests unwrapped)"
+   "write-scorecard! portable"
+   "test_disclosure_hold seed noah + test_ss itonami path portable"
+   "test_itonami_bridge + test_public_person seed + test_displacement_l0/scorecard/audit portable"
+   "priority_stack_smoke.cljs nbb pure (1)(2)(3)+all-seven design EDN+surplus ledger"
+   "itonami surplus ledger write-ledger! portable (cash-to-workers≡0)"
+   "test_pages_publish + test_pages_deploy portable (nbb)"
+   "scorecard + public surface + pipeline audit + pages_deploy/publish README"
+   "write-pages! + write-deploy-package! + audit ledger I/O portable nbb"
+   "report-edn scorecard/dl0/itonami/audit under nbb"
+   "publish.cljs nbb host (no publish.bb)"
+   "land/run_tests/publish entrypoints are .cljs only (legacy .sh/.bb retired)"
+   "test_consistency + test_charter_invariants portable (JSON+ontology+seed under nbb)"
+   "test_analyze seed via edn/data-file; test_displacement_surface unwrapped"
+   "test_public_surface_report + test_displacement_tenure batch seed portable nbb"
+   "run_tests.cljs in-process nbb (no bb spawn)"
+   "write-report! portable nbb (out/public-surface.{md,edn,html})"
+   "analyze -main portable nbb (out/allocation-dryrun.md + allocations.kotoba.edn)"
+   "provision abaki block-list portable under nbb"
+   "displacement_l0 run-default-seed via edn/load-data"
+   "itonami_bridge data-path via edn/data-file"
+   "priority_stack_smoke: tick-series held-stress + care-housing-first + all-seven-substrate"
+   "methods/write_all.cljs nbb entry for write-all! (land prefers it)"
+   "write-scorecard! + pages_publish/deploy + pipeline actor-dir via edn/actor-dir"
+   "init.cljc portable; init.clj retired stub"
+   "priority_stack.cljc SSoT run-offline (1)L0 (2)disclosure held-stress (3)mitsuho R1→gated"
+   "test_priority_stack + smoke uses priority_stack/run-offline fail-fast"
+   "mitsuho/hikari design-edn-invariants read care-first-order from design EDN"
+   "scorecard/priority-stack-offline + report/priority-stack-offline surfaces"
+   "scorecard build uses edn/load-data (fixed data-file reference bug)"
+   "data/priority-stack-design.edn machine-readable (1)(2)(3) design"
+   "pipeline audit embeds priority-stack ok/L0/mitsuho gated/held-stress facts"
+   "portable catch Exception→:default (public_surface_report/r2/displacement_gov)"
+   "priority_stack design-edn-invariants (data/priority-stack-design.edn order 1→2→3)"
+   "run-offline validates design EDN before L0/disclosure/mitsuho slices"
+   "pages_publish + public/README document priority_stack SSoT + smoke"
+   "static public/scorecard.md + out/public-surface.md priority-stack sections"
+   "out/displacement-scorecard.md + public/index.html + out/public-surface.html priority-stack"
+   "scorecard/report tests assert design-id + design-order-count=3"
+   "public/priority-stack-offline.edn + out/priority-stack-offline.edn machine-readable SSoT"
+   "pages_publish writes priority-stack-offline.edn; deploy static-files lists it"
+   "readiness layer :priority-stack-ssot first"
+   "priority_stack/assert-public-facts! shared by smoke + pages + write_all"
+   "write_all.cljs post-checks public/priority-stack-offline.edn after package"
+   "test_static priority-stack-offline.edn when present + test_pages_deploy static-files"
+   "methods/readiness_check.cljs nbb entry (design+run-offline+static+readiness layer)"
+   "land runs readiness_check before priority_stack_smoke"
+   "scorecard/public tests use assert-public-facts!"
+   "load-public-facts-file + fact-get (keyword or :string keys from fuchi.edn)"
+   "assert-public-facts! accepts dual key shapes; readiness layer test in suite"
+   "static public/scorecard.md + out/displacement-scorecard.md + out/public-surface.md DESIGN sections"
+   "priority_stack run-hikari-design + public-facts hikari R1/gated/care-first/held-stress"
+   "l0-paths-design-invariants (9 paths, all held-stress-embed) in run-offline"
+   "scorecard/public/audit surfaces emit hikari + l0-paths priority-stack facts"
+   "run-care-housing-substrate (孫/子 multi-gen before food/energy; land-grant never)"
+   "public-facts care-housing-api/both-refused/land-grant/held-stress required"
+   "run-all-seven-substrate capstone (inkind+membrane+liq refuse; loan/land-grant never)"
+   "public-facts all-seven-api/membrane/loan/land-grant/held-stress required"
+   "ss_offline_path priority-path-summary embeds :priority-stack-offline public-facts"
+   "test_ss asserts priority-stack-offline-ok + all-seven membrane + cash≡0"
+   "nbb.edn + deps.edn dual classpath (methods/ root + src/fuchi) for land onto main"]}
+
+ :readiness/not-in-scope
+ ["live mitsuho/hikari produce"
+  "live land-grant / loan / wrangler deploy"
+  "personal scores / ranks"
+  "cash disbursement"]}
