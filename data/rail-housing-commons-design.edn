@@ -26,6 +26,13 @@
   "commons-land-not-private-equity"
   "not-a-happiness-score"
   "land-grant-not-invoked"]
+ :rail/care-first-order
+ {:rank 2
+  :api-path "care-housing-first-path"
+  :before-rails ["care"]
+  :multi-gen-first true
+  :land-grant-executed false
+  :live-produce false}
  :rail/hold-coupling
  {:on-disclosure-held :refuse-dispatch
   :on-exit-suspended :refuse-dispatch

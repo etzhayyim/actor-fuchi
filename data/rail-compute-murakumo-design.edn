@@ -23,6 +23,12 @@
   "not-a-happiness-score"
   "mesh-quota-not-invoked"
   "wellbecoming-substrate"]
+ :rail/care-first-order
+ {:api-path "vocation-recovery-path"
+  :before-rails ["care" "housing"]
+  :vocation-recovery true
+  :quota-executed false
+  :live-produce false}
  :rail/hold-coupling
  {:on-disclosure-held :refuse-dispatch
   :on-exit-suspended :refuse-dispatch

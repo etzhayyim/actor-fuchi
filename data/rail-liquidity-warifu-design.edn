@@ -25,6 +25,14 @@
   "qard-hasan-zero-percent"
   "not-a-happiness-score"
   "loan-not-invoked"]
+ :rail/care-first-order
+ {:api-path "liquidity-residual-path"
+  :before-rails ["care" "housing"]
+  :residual-rail true
+  :member-principal true
+  :loan-executed false
+  :live-produce false
+  :cash-usd-micros 0}
  :rail/hold-coupling
  {:on-disclosure-held :refuse-dispatch
   :on-exit-suspended :refuse-dispatch

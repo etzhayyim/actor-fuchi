@@ -37,10 +37,25 @@
 
  :rail/multi-gen-facts
  ["staple-kcal-floor-supports-caregiver-and-child-households"
+  "food-after-care-housing-for-mago-ko-substrate"
   "not-a-happiness-score"
   "imputed-usd-is-accounting-fact-only"]
+
+ ;; Offline path order for 孫/子: care+housing floors first, then food R1→gated.
+ :rail/care-first-order
+ {:before-rails ["care" "housing"]
+  :this-rail "food"
+  :api-path "care-first-mitsuho-path"
+  :note "wellbecoming > mago > ko: mitsuho after care-iyashi (and housing when multi-gen)"}
+
+ :rail/itonami-recovery
+ {:role "in-kind food floor after multi-gen care substrate"
+  :after ["care-iyashi" "housing-commons"]
+  :before-vocation ["tooling-okaimono" "compute-murakumo"]
+  :live-produce false}
 
  :rail/hold-coupling
  {:on-disclosure-held :refuse-dispatch
   :on-exit-suspended :refuse-dispatch
-  :on-open :allow-r1-and-gated-plan}}
+  :on-open :allow-r1-and-gated-plan
+  :stale-disclosure-ladder :refuse}}

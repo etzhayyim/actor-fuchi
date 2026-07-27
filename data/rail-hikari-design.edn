@@ -20,24 +20,39 @@
    :live false}
   :gated-live-design
   {:requires ["FUCHI_ALLOW_LIVE_PROVISION=1"
-              "operator-did"
+              "operator-did non-blank"
               "Council Lv6+"
-              "member-signature"
+              "member-signature (non-server)"
               "disclosure state ≠ held"
-              "public-person? or L0 floor"]
+              "public-person? true OR L0 floor active"]
    :still-does-not ["call hikari live generation API"
                     "move cash"
                     "publish true without gate"
                     "personal scores"]
-   :live false}}
+   :live false
+   :note "design+authorize only; hikari R2 generate remains separate actor gate"}}
 
  :rail/multi-gen-facts
  ["kwh-floor-supports-household-care-and-learning"
+  "energy-after-care-housing-for-mago-ko-substrate"
   "no-fossil-no-nuclear-constitutional"
   "not-a-happiness-score"
   "imputed-usd-is-accounting-fact-only"]
 
+ :rail/care-first-order
+ {:before-rails ["care" "housing"]
+  :this-rail "energy"
+  :api-path "care-first-hikari-path"
+  :note "wellbecoming > mago > ko: hikari after care-iyashi (and housing when multi-gen)"}
+
+ :rail/itonami-recovery
+ {:role "in-kind energy floor after multi-gen care substrate"
+  :after ["care-iyashi" "housing-commons"]
+  :before-vocation ["tooling-okaimono" "compute-murakumo"]
+  :live-produce false}
+
  :rail/hold-coupling
  {:on-disclosure-held :refuse-dispatch
   :on-exit-suspended :refuse-dispatch
-  :on-open :allow-r1-and-gated-plan}}
+  :on-open :allow-r1-and-gated-plan
+  :stale-disclosure-ladder :refuse}}
