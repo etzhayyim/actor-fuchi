@@ -7,7 +7,7 @@
 ;;   (3) public/ + out/ priority-stack-offline.edn (if present)
 ;;   (4) data/itonami-offline-ss-readiness.edn layer :priority-stack-ssot
 ;;
-;; Usage (from com-etzhayyim-fuchi root):
+;; Usage (from actor-fuchi root):
 ;;   nbb -cp . methods/readiness_check.cljs
 ;;
 ;; cash≡0 · live refuse · no scores · ADR-2607173000 nbb only.

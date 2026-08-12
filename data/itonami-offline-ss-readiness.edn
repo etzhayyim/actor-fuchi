@@ -183,7 +183,7 @@
           "commit methods/ public/ data/ out/ docs README.md MATURITY.md CLAUDE.md"
           "git rm obsolete .sh/.bb/init.clj entrypoints if still tracked"
           "push etzhayyim|origin main (ff-only, no force)"
-          "west pin com-etzhayyim-fuchi"]
+          "west pin actor-fuchi"]
   :blocker "agent terminal spawn ENOENT prevents land from loop sessions (parent+subagent)"
   :static-surface-note "public/{index.html,scorecard.md,README.md} + out/* hand-patched until write-deploy-package! regen on land (nbb-portable)"
   :code-complete-surfaces

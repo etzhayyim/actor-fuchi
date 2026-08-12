@@ -2,7 +2,7 @@
 ;; _land_ss_gated_wip.cljs — one-shot land when terminal is available.
 ;; DELETE after successful push (WIP land helper, not permanent product code).
 ;;
-;; Usage (from com-etzhayyim-fuchi root):
+;; Usage (from actor-fuchi root):
 ;;   nbb methods/_land_ss_gated_wip.cljs
 ;;
 ;; ADR-2607173000: nbb host only (no bash land script).
@@ -208,16 +208,16 @@
   (let [gen (.join path ROOT "scripts/gen-west-manifest.cljs")]
     (if (exists? gen)
       (do
-        (println "→ west pin gen --entry com-etzhayyim-fuchi")
-        (run! ["nbb" gen "--entry" "com-etzhayyim-fuchi"] {:cwd ROOT})
+        (println "→ west pin gen --entry actor-fuchi")
+        (run! ["nbb" gen "--entry" "actor-fuchi"] {:cwd ROOT})
         (let [chk (run ["nbb" gen "--check"] {:cwd ROOT})]
           (when-not (zero? (:exit chk))
             (println "WARN: gen-west-manifest --check exit=" (:exit chk))))
         (println "If gen wrote west.yml, commit on root main with:")
-        (println "  chore(west): pin com-etzhayyim-fuchi → itonami offline held-stress E2E"))
+        (println "  chore(west): pin actor-fuchi → itonami offline held-stress E2E"))
       (do
-        (println "Manual west pin: set com-etzhayyim-fuchi revision to" sha)
-        (println "Message: chore(west): pin com-etzhayyim-fuchi → itonami offline held-stress E2E")))))
+        (println "Manual west pin: set actor-fuchi revision to" sha)
+        (println "Message: chore(west): pin actor-fuchi → itonami offline held-stress E2E")))))
 
 (defn -main []
   (js/process.chdir DIR)

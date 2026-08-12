@@ -1,5 +1,12 @@
 # 扶持 (fuchi) — maintainer sustenance allocator
 
+Canonical repository: `etzhayyim/actor-fuchi`.
+
+Fuchi is a governed allocation organ of the Tamaki artificial organism, not an
+independent fund or decision authority. It computes and routes dry-run in-kind
+plans; member signatures, Council decisions, and the live gates below remain
+authoritative for every outward or value-moving action.
+
 The **charter-clean inverse of a business investment fund**. Where a VC fund invests capital in
 founders expecting equity + ROI + an exit, **扶持** (the feudal **扶持米** — the in-kind rice
 stipend that sustained a retainer so they could serve) allocates **in-kind sustenance +

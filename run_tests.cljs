@@ -1,7 +1,7 @@
 #!/usr/bin/env nbb
 ;; fuchi 扶持 — test suite host (ADR-2607173000: nbb only, no bash / no bb spawn).
 ;;
-;; Usage (from com-etzhayyim-fuchi root):
+;; Usage (from actor-fuchi root):
 ;;   nbb -cp . run_tests.cljs
 ;;
 ;; Pure nbb suite: requires + clojure.test/run-tests in-process (no bb spawn).
