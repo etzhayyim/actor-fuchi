@@ -1,4 +1,4 @@
-{:repository/id "com-etzhayyim-fuchi"
+{:repository/id "actor-fuchi"
  :repository/type :actor
  :actor/id "fuchi"
  :actor/glyph "扶持"

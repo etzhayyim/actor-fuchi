@@ -7,7 +7,7 @@
 ;;     + all-seven design EDN + care-housing-first + all-seven-substrate
 ;;
 ;; Invariants: wellbecoming > 孫 > 子; public-person facts; no scores; cash≡0; live refuse.
-;; Usage (from com-etzhayyim-fuchi root):
+;; Usage (from actor-fuchi root):
 ;;   nbb -cp . methods/priority_stack_smoke.cljs
 (require '[clojure.string :as str])
 

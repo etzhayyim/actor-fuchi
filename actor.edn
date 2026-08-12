@@ -1,4 +1,4 @@
-{:did        "did:web:etzhayyim.github.io:com-etzhayyim-fuchi"
+{:did        "did:web:etzhayyim.com:actor:fuchi"
  :handle     "fuchi.etzhayyim.com"
  :ipns-key   "fuchi-actor"
  :graph-type "com.etzhayyim.fuchi.graph"

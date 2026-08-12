@@ -6,7 +6,7 @@
 ;; Then verifies public/priority-stack-offline.edn (1)(2)(3) SSoT facts.
 ;; Never deploys. cash≡0. live refuse. no personal scores.
 ;;
-;; Usage (from com-etzhayyim-fuchi root):
+;; Usage (from actor-fuchi root):
 ;;   nbb -cp . methods/write_all.cljs
 (def fs (js/require "node:fs"))
 (def path (js/require "node:path"))
