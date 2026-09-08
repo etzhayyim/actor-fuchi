@@ -1,7 +1,7 @@
 (ns fuchi.methods.test-l0-enroll
   "Offline L0 enrollment scaffold tests (ADR-2605302357 §1.16.3a + 2607177000)."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [fuchi.methods.l0-enroll :as l0]
             [fuchi.methods.public-person :as pp]))
 

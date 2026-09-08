@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-displacement-scorecard
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [fuchi.methods.displacement-scorecard :as sc]
             [fuchi.methods.priority-stack :as pstack]
             [fuchi.methods.public-person :as pp]

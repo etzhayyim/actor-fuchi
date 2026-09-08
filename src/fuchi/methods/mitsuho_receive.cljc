@@ -4,7 +4,7 @@
   Actor-side counterpart to rail_mitsuho (fuchi plan). Does NOT produce food, does NOT
   go live, does NOT move cash. Acknowledges intent shape + multi-gen floor facts.
   Portable .cljc."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [fuchi.methods.public-person :as pp]
             [fuchi.methods.rail-mitsuho :as mitsuho]
             [fuchi.methods.live-gate :as live-gate]

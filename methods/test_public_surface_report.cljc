@@ -1,7 +1,7 @@
 (ns fuchi.methods.test-public-surface-report
   "Public surface report tests — portable under nbb and bb (ADR-2607173000)."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [fuchi.methods.public-surface-report :as rep]
             [fuchi.methods.priority-stack :as pstack]
             [fuchi.methods.public-person :as pp]

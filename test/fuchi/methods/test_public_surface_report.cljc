@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-public-surface-report
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [fuchi.methods.public-surface-report :as rep]
             [fuchi.methods.public-person :as pp]
             #?(:clj [clojure.java.io :as io])

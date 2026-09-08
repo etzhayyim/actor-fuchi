@@ -10,7 +10,7 @@
 
   Priority facts: wellbecoming > mago > ko > present (food as multi-gen substrate).
   Portable .cljc (design EDN load under bb + nbb)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [fuchi.methods.provision :as provision]
             [fuchi.methods.live-gate :as live-gate]
             [fuchi.methods.public-person :as pp]

@@ -2,7 +2,7 @@
   "Offline L0 enrollment scaffold tests (ADR-2605302357 §1.16.3a + 2607177000).
    Priorities: (1) L0 enroll (2) disclosure hold+continuity (3) mitsuho R1 membrane."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [fuchi.methods.l0-enroll :as l0]
             [fuchi.methods.public-person :as pp]
             [fuchi.methods.disclosure-continuity :as disc]))

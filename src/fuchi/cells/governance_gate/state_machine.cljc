@@ -3,7 +3,7 @@
   1:1 port of cells/governance_gate/state_machine.py (ADR-2606052300). Routes an allocation to the
   body that decides it (rider→refused / invariant→council-lv7 / >ceiling→sbt-vote / else→auto), then
   appends the outcome (only :sbt-vote consults a tally). 扶持 computes+routes, NEVER decides (非裁定)."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def optimistic-ceiling-usd-micros-yr 24000000000)
 (def rider-forbidden ["advertis" "affiliate" "adsense" "weapon" "munition" "fire-control" "surveillance" "biometric" "addictive" "dark-pattern" "広告" "兵器"])
@@ -12,8 +12,8 @@
 (def state-defaults {"phase" "init" "alloc_id" "" "imputed_total" 0 "context" "" "route" "" "mechanism" "" "outcome" ""})
 (defn- cell-state [state] (merge state-defaults (get state "cell_state" {})))
 (defn- to-int [v] (long (or v 0)))
-(defn- rider [text] (let [t (str/lower-case (str (or text "")))] (some #(when (str/includes? t %) %) rider-forbidden)))
-(defn- touches-invariant? [text] (let [t (str/lower-case (str (or text "")))] (boolean (some #(str/includes? t %) invariant-touch-tokens))))
+(defn- rider [text] (let [t (str/lower (str (or text "")))] (some #(when (str/includes? t %) %) rider-forbidden)))
+(defn- touches-invariant? [text] (let [t (str/lower (str (or text "")))] (boolean (some #(str/includes? t %) invariant-touch-tokens))))
 
 (defn transition-to-routed [state]
   (let [cs (cell-state state)

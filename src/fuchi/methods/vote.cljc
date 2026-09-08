@@ -11,7 +11,7 @@
 
   House style: ':…' strings stay strings; pure fns; gates → ex-info. Time is an integer hour
   stamp (passed in). Portable .cljc."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [fuchi.methods.live-gate :as live-gate]))
 
 (def DEFAULT-TIMELOCK-H 48)
@@ -20,7 +20,7 @@
 
 (defn- kw* [v]
   (-> (str (or v "")) (#(if (str/starts-with? % ":") (subs % 1) %))
-      (str/split #"/") last str/lower-case))
+      (str/split #"/") last str/lower))
 
 (defn make-ballot
   "Ballot dataclass equivalent. __post_init__ enforces weight==1, no-server-key,
@@ -31,7 +31,7 @@
     (throw (ex-info "1 SBT = 1 vote INVARIANT: ballot weight must be 1" {})))
   (when server-held-key
     (throw (ex-info "no-server-key INVARIANT (G9): a ballot is member-signed" {})))
-  (let [v (str/lower-case (str voter-did))]
+  (let [v (str/lower (str voter-did))]
     (when (or (some #(str/starts-with? v %) ["server" "did:server" ":server"])
               (contains? #{"server" "anon"} v))
       (throw (ex-info "G9/G4: a :server / :anon voter is unrepresentable" {})))

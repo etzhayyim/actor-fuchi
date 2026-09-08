@@ -6,7 +6,7 @@
   analyze key every seed record on string keys (\":maintainer/did\", \":envelope/line\",
   \":gov/ballots\", …), so the loader must yield the same string shape Python `load_edn`
   does, byte-for-byte. Stdlib only (regex tokenizer); file I/O at the #?(:clj) edge."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; ── tokenizer (mirror of the Python _TOK regex) ───────────────────────────
 (def ^:private token-re

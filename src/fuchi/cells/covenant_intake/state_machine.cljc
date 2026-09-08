@@ -3,14 +3,14 @@
   1:1 port of cells/covenant_intake/state_machine.py (ADR-2606052300). A 信者 maintainer's covenant
   is SCREENED (refused) unless G4 covenant ∈ {outreach,vowed}, G5 owns-payoff false, G9 server-held-key
   false; a SCREENED covenant is RECORDED. REFUSAL gate, not a clamp."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def covenants #{"outreach" "vowed"})
 (def state-defaults
   {"phase" "init" "did" "" "covenant" "" "tenure_months" 0 "hazard_permille" 1000
    "owns_payoff" false "server_held_key" false "refusal" "" "payload" {}})
 (defn- cell-state [state] (merge state-defaults (get state "cell_state" {})))
-(defn- kw [v] (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower-case))
+(defn- kw [v] (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower))
 (defn- to-int [v] (long (or v 0)))
 
 (defn transition-to-screened [state]

@@ -2,7 +2,7 @@
   "End-to-end tests for 扶持 (fuchi) analyze.cljc over the :representative seed.
   1:1 port of methods/test_analyze.py (clojure.test)."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [fuchi.methods.edn :as edn]
             [fuchi.methods.analyze :as analyze]
             [fuchi.methods.public-person :as public-person]))

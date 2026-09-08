@@ -4,7 +4,7 @@
 
   Offline ingest only. No live itonami API. No cash to workers. No personal scores.
   Portable .cljc (seed load under bb + nbb)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [fuchi.methods.couple :as couple]
             [fuchi.methods.displacement-surface :as disp]
             [fuchi.methods.public-person :as pp]

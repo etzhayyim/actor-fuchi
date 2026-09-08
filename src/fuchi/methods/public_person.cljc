@@ -11,7 +11,7 @@
   Social security is substrate for multi-gen wellbecoming, not recipient ranking.
 
   Portable .cljc; pure fns; no I/O."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [clojure.set :as set]))
 
 (def PRIORITY-STACK
@@ -41,7 +41,7 @@
   (let [s (str s)] (if (str/starts-with? s ":") (subs s 1) s)))
 
 (defn- norm-kw [v]
-  (-> (->str v) lstrip-colon str/lower-case
+  (-> (->str v) lstrip-colon str/lower
       (str/split #"/") last))
 
 (defn covenant?

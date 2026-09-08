@@ -24,7 +24,7 @@
   refuses if it is absent, server-held, or synthetic. No platform-held key is ever accepted.
 
   House style: ':…' strings stay strings; closed-vocab/gate → ex-info. Portable .cljc."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def LEG-POLICY
   (array-map
@@ -56,7 +56,7 @@
 ;; member-signed capability, never one of these.
 (defn- server-or-blank-signer? [sig]
   (let [s (str/trim (str sig))
-        l (str/lower-case s)]
+        l (str/lower s)]
     (or (str/blank? s)
         (= l "anon")
         (str/includes? l "server")

@@ -3,7 +3,7 @@
   (ADR-2606052300). covenant_intake (G4/G5/G9) · need_assessment (G2/G3) · allocation_compute
   (G1/G2/G5) · routing_dispatch (G3) · governance_gate (G7); .solve() raises at R0."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [fuchi.cells.covenant-intake.state-machine :as ci]
             [fuchi.cells.need-assessment.state-machine :as na]
             [fuchi.cells.allocation-compute.state-machine :as ac]

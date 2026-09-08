@@ -7,7 +7,7 @@
 
   Multi-gen housing (commons) intentionally escalates to Council Lv7 — not auto cash.
   cash≡0. no scores. live=false. Portable .cljc."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [fuchi.methods.route :as route]
             [fuchi.methods.vote :as vote]
             [fuchi.methods.live-gate :as live-gate]

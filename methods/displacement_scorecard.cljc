@@ -4,7 +4,7 @@
   Runs itonami seed → L0→L4 enroll/book/G2 → optional L4→L6 tenure → live-gate refuse matrix.
   Emits facts-only MD/EDN. cash≡0. no scores. live=false throughout.
   Portable .cljc; seed load + package build under bb and nbb."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [fuchi.methods.public-person :as pp]
             [fuchi.methods.live-gate :as live-gate]
             [fuchi.methods.displacement-l0-path :as dl0]

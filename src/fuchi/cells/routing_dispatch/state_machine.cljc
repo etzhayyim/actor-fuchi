@@ -3,7 +3,7 @@
   1:1 port of cells/routing_dispatch/state_machine.py (ADR-2606052300). Decomposes an assessed
   envelope into delivery RAILS over producing actors; liquidity becomes a MEMBER-PRINCIPAL warifu rail
   (扶持 never the creditor/payer); a cash line is unrepresentable (cash≡0). REFUSAL gate."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def line-to-rail
   {"housing"   ["housing-commons" "commons-land"]
@@ -16,7 +16,7 @@
 
 (def state-defaults {"phase" "init" "did" "" "rails" [] "in_kind_coverage" 1.0 "refusal" ""})
 (defn- cell-state [state] (merge state-defaults (get state "cell_state" {})))
-(defn- kw [v] (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower-case))
+(defn- kw [v] (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower))
 (defn- to-int [v] (long (or v 0)))
 (defn- pyround4 [x] (/ (Math/round (* (double x) 10000.0)) 10000.0))
 

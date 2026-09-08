@@ -31,7 +31,7 @@
     port cleanly and pass. The Python `_run` demo printer is omitted (clojure.test provides the
     runner)."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])
             [fuchi.methods.edn :as edn]
             [fuchi.methods.allocate :as allocate]

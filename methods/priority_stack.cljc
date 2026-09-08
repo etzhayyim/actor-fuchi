@@ -8,7 +8,7 @@
 
   Invariants: wellbecoming > 孫 > 子; public-person facts only; no scores; cash≡0;
   live default refuse. Portable .cljc (bb + nbb; ADR-2607173000)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [fuchi.methods.l0-enroll :as l0]
             [fuchi.methods.disclosure-hold :as dh]
             [fuchi.methods.disclosure-continuity :as disc]

@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-provision
   "Tests for 扶持 (fuchi) provision.cljc — 1:1 port of methods/test_provision.py (clojure.test)."
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.lang.text] [clojure.test :refer [deftest is]]
             [fuchi.methods.provision :as p]
             [fuchi.methods.route :as route]))
 
@@ -28,7 +28,7 @@
   (let [rails (route/route-envelope [(env "liquidity" 5) (env "food" 5)])
         by (into {} (map (fn [i] [(:rail-kind i) i]) (p/provision rails "a")))]
     (is (true? (:member-principal (get by "liquidity-warifu"))))
-    (is (clojure.string/ends-with? (:provider-did (get by "liquidity-warifu")) "warifu"))
+    (is (kotoba.lang.text/ends-with? (:provider-did (get by "liquidity-warifu")) "warifu"))
     (is (false? (:member-principal (get by "food-mitsuho"))))))
 
 (deftest test-intent-is-dry-run-cashless-keyless
