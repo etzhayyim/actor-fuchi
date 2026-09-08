@@ -5,7 +5,7 @@
   Bridges cloud-itonami style displacement events to covenantal SS funding facts.
   No personal scores. cash≡0 on recipient side. G2: unfunded cohort refused.
   Portable .cljc."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [fuchi.methods.couple :as couple]
             [fuchi.methods.public-person :as pp]))
 

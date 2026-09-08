@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-displacement-gov
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [fuchi.methods.displacement-gov :as g]
             [fuchi.methods.displacement-l0-path :as d]
             [fuchi.methods.displacement-tenure :as ten]

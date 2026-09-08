@@ -1,7 +1,7 @@
 (ns fuchi.methods.test-pages-publish
   "write-pages! package tests — portable under bb and nbb."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [fuchi.methods.pages-publish :as pages]
             [fuchi.methods.priority-stack :as pstack]
             [fuchi.methods.public-person :as pp]))

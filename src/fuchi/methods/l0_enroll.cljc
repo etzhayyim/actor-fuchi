@@ -8,7 +8,7 @@
   NEVER live: no SBT mint, no IPFS pin, no openmail, no cash (G2/G9/G10).
   Priority stack fact embedded: wellbecoming > mago > ko > present.
   Portable .cljc; pure fns."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [fuchi.methods.public-person :as pp]))
 
 (def PRIORITY-STACK pp/PRIORITY-STACK)
@@ -60,7 +60,7 @@
     (throw (ex-info "vow-text required (metanoia/baptism/tokudo content)" {})))
   (when (str/blank? (str member-signature))
     (throw (ex-info "member-signature required (anti-coercion / no-server-key)" {})))
-  (let [c (-> covenant str (str/replace #"^:" "") str/lower-case)]
+  (let [c (-> covenant str (str/replace #"^:" "") str/lower)]
     (when-not (contains? #{"outreach" "vowed"} c)
       (throw (ex-info (str "G4: covenant " c " unrepresentable") {:covenant c})))
     {:subject-did subject-did

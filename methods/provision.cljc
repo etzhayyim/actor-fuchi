@@ -10,7 +10,7 @@
 
   House style: ':…' strings stay strings; pure fns; structural gates → ex-info; the abaki
   routing-policy file read is at the #?(:clj) edge. Portable .cljc."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [fuchi.methods.live-gate :as live-gate]))
 
 ;; rail kind → [provider-id provider-kind short-label]. Mirrors route/LINE-TO-RAIL.

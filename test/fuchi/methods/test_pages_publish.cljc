@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-pages-publish
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])
             #?(:clj [fuchi.methods.pages-publish :as pages])))
 

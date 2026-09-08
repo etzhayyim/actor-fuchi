@@ -5,7 +5,7 @@
   Does not execute produce/book/couple live. Portable .cljc;
   file I/O at #?(:clj | :cljs/nbb) edge (ADR-2607173000)."
   (:require [fuchi.methods.public-person :as pp]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])))
 
 (def PRIORITY-STACK pp/PRIORITY-STACK)

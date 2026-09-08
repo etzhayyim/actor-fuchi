@@ -12,7 +12,7 @@
      else → :auto. 扶持 computes + routes; never DECIDES accept/reject (非裁定).
 
   House style: ':…' strings stay strings; pure fns; closed-vocab/gate → ex-info. Portable .cljc."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; G3 — envelope line → [rail-kind provider-actor]. The closed map (mirror of the ontology).
 (def LINE-TO-RAIL
@@ -39,7 +39,7 @@
 
 (defn- kw* [v]
   (-> (str (or v "")) (#(if (str/starts-with? % ":") (subs % 1) %))
-      (str/split #"/") last str/lower-case))
+      (str/split #"/") last str/lower))
 
 ;; ── Rail record ─────────────────────────────────────────────────────────────
 (defn make-rail
@@ -85,12 +85,12 @@
 (defn rider-hit
   "Return the first forbidden token found in the joined lowercased texts, else \"\"."
   [& texts]
-  (let [blob (str/lower-case (str/join " " (map #(or % "") texts)))]
+  (let [blob (str/lower (str/join " " (map #(or % "") texts)))]
     (or (some #(when (str/includes? blob %) %) RIDER-FORBIDDEN) "")))
 
 (defn touches-invariant
   [& texts]
-  (let [blob (str/lower-case (str/join " " (map #(or % "") texts)))]
+  (let [blob (str/lower (str/join " " (map #(or % "") texts)))]
     (boolean (some #(str/includes? blob %) INVARIANT-TOUCH-TOKENS))))
 
 (defn gov-route

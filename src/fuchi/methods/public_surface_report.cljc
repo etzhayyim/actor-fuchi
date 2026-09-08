@@ -5,7 +5,7 @@
   priority-rank, share, weight, scores, or percentiles.
   Covers all in-kind rails + dry floor plans + itonami displacement facts.
   Portable .cljc; pure report builders; file write only at #?(:clj) edge optional."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [fuchi.methods.public-person :as pp]
             [fuchi.methods.rail-mitsuho :as mitsuho]
             [fuchi.methods.rail-hikari :as hikari]
@@ -84,7 +84,7 @@
       (str/replace #"^:" "")
       (str/split #"/")
       last
-      str/lower-case))
+      str/lower))
 
 (defn- imp-for [envs line]
   (reduce + 0 (map #(long (or (get % ":envelope/imputed-usd-micros-yr")

@@ -3,12 +3,12 @@
   1:1 port of cells/need_assessment/state_machine.py (ADR-2606052300). A maintainer's sustenance NEED
   is assessed as in-kind lines; REFUSES any line with nonzero cash (G2 cash≡0) or not a covered in-kind
   line (G3 cash/stipend/disbursement unrepresentable)."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def lines- #{"housing" "food" "energy" "compute" "tooling" "care" "liquidity"})
 (def state-defaults {"phase" "init" "did" "" "lines" [] "imputed_total" 0 "refusal" "" "payload" []})
 (defn- cell-state [state] (merge state-defaults (get state "cell_state" {})))
-(defn- kw [v] (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower-case))
+(defn- kw [v] (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower))
 (defn- to-int [v] (long (or v 0)))
 
 (defn transition-to-assessed [state]

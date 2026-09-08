@@ -2,7 +2,7 @@
   "End-to-end tests for 扶持 (fuchi) analyze.cljc over the :representative seed.
   Portable under nbb and bb (ADR-2607173000)."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.set]
             [fuchi.methods.edn :as edn]
             [fuchi.methods.analyze :as analyze]

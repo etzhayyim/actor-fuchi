@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-disclosure-hold
   "Disclosure hold state machine tests (ADR-2607177000)."
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.lang.text] [clojure.test :refer [deftest is]]
             [fuchi.methods.disclosure-hold :as dh]
             [fuchi.methods.public-person :as pp]
             #?(:clj [clojure.java.io :as io])
@@ -71,8 +71,8 @@
                      (io/file "."))
            seed (edn/load-edn (io/file actor "data" "seed-sustenance-graph.kotoba.edn"))
            surfs (pp/persons-from-seed seed)
-           noah-surf (first (filter #(clojure.string/ends-with? (str (:did %)) "noah") surfs))
-           rec (first (filter #(clojure.string/ends-with? (str (get % ":maintainer/did")) "noah")
+           noah-surf (first (filter #(kotoba.lang.text/ends-with? (str (:did %)) "noah") surfs))
+           rec (first (filter #(kotoba.lang.text/ends-with? (str (get % ":maintainer/did")) "noah")
                               (get seed ":maintainer/batch")))
            drec (pp/disclosure-for-did seed (get rec ":maintainer/did"))
            person (pp/persons-from-seed-row rec

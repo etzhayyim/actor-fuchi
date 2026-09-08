@@ -15,7 +15,7 @@
 
   House style: Python ':…' keyword strings stay strings; pure fns; deterministic; round()
   is HALF_EVEN via exact BigDecimal. Portable .cljc."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def TENURE-CAP-YEARS 40.0)
 (def HAZARD-MIN 1.0)
@@ -38,7 +38,7 @@
   "G1 INVARIANT — only a sustenance instrument is allocatable. Anything resembling an
   investment/return vehicle is an ex-info (not an investment fund; Charter-Rider §2(b))."
   [instrument]
-  (let [instr (-> (->str instrument) lstrip-colon str/lower-case)]
+  (let [instr (-> (->str instrument) lstrip-colon str/lower)]
     (cond
       (contains? FORBIDDEN-INSTRUMENTS instr)
       (throw (ex-info (str "G1: instrument '" instr "' is an investment/return vehicle — "
@@ -158,7 +158,7 @@
 (defn cohort-from-seed
   "Build a cohort from seed :maintainer/* maps (edn keyword-string-keyed)."
   [records]
-  (let [kw (fn [v] (-> (->str v) lstrip-colon (str/split #"/") last str/lower-case))]
+  (let [kw (fn [v] (-> (->str v) lstrip-colon (str/split #"/") last str/lower))]
     (mapv
      (fn [r]
        (make-maintainer

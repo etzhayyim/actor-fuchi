@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-couple
   "Tests for 扶持 (fuchi) couple.cljc — 1:1 port of methods/test_couple.py (clojure.test)."
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.lang.text] [clojure.test :refer [deftest is]]
             [fuchi.methods.couple :as c]))
 
 (defn- event [& {:as over}]
@@ -38,14 +38,14 @@
   (let [e (event :funded false) em (c/earmark-from-surplus e)
         g (c/coupling-gate e em 1)]
     (is (and (false? (get g "admissible"))
-             (clojure.string/includes? (get g "reason") "G2")
-             (clojure.string/includes? (get g "reason") "no funded")))))
+             (kotoba.lang.text/includes? (get g "reason") "G2")
+             (kotoba.lang.text/includes? (get g "reason") "no funded")))))
 
 (deftest test-over-earmark-commitment-is-refused
   (let [e (event :surplus-usd-micros-yr 10000000000 :funded true) em (c/earmark-from-surplus e)
         g (c/coupling-gate e em 20000000000)]
     (is (and (false? (get g "admissible"))
-             (clojure.string/includes? (get g "reason") "exceeds funded earmark")))))
+             (kotoba.lang.text/includes? (get g "reason") "exceeds funded earmark")))))
 
 (deftest test-committed-exactly-at-earmark-is-admissible
   (let [e (event :surplus-usd-micros-yr 10000000000 :funded true) em (c/earmark-from-surplus e)

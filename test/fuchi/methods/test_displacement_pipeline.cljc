@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-displacement-pipeline
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             #?(:clj [fuchi.methods.displacement-pipeline :as pipe])
             #?(:clj [clojure.java.io :as io])))
 

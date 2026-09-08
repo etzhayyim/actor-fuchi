@@ -14,7 +14,7 @@
   House style: ':…' strings stay strings; pure fns; file I/O only at #?(:clj) edges;
   the give-only gate (equity/debt/ROI/exit unrepresentable, cash≡0) is ported 1:1 from the
   sibling modules. Portable .cljc."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [fuchi.methods.edn :as edn]
             [fuchi.methods.allocate :as allocate]
             [fuchi.methods.route :as route]
@@ -27,7 +27,7 @@
 
 (defn- kw* [v]
   (-> (str (or v "")) (#(if (str/starts-with? % ":") (subs % 1) %))
-      (str/split #"/") last str/lower-case))
+      (str/split #"/") last str/lower))
 
 (defn- envelopes-for [seed did]
   (filterv #(= (get % ":envelope/maintainer") did) (get seed ":envelope/batch" [])))

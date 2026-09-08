@@ -2,7 +2,7 @@
   "SSoT drift-lock tests for 扶持 (fuchi): manifest ↔ files ↔ ontology ↔ seed.
   Portable under nbb and bb (ADR-2607173000)."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [fuchi.methods.edn :as edn]))
 
 #?(:cljs

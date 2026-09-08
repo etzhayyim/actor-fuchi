@@ -1,7 +1,7 @@
 (ns fuchi.methods.test-displacement-pipeline
   "Pipeline run!/write-all! tests — portable under bb and nbb."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [fuchi.methods.displacement-pipeline :as pipe]))
 
 #?(:cljs

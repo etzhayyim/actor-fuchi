@@ -7,7 +7,7 @@
 
   PROVENANCE: test_g10_every_live_leg_refused_by_default deferred (R2 Autonomous)."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [fuchi.methods.edn :as edn]
             [fuchi.methods.allocate :as allocate]
             [fuchi.methods.book :as book]

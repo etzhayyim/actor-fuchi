@@ -8,7 +8,7 @@
 
   Never mints SBT, never disburses, never ranks. Priority: wellbecoming > 孫 > 子.
   Portable .cljc."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [fuchi.methods.public-person :as pp]
             [fuchi.methods.disclosure-hold :as dh]))
 
@@ -55,7 +55,7 @@
 (defn normalize-stage [s]
   (let [t (-> (str (or s "L0"))
               (str/replace #"^:" "")
-              str/upper-case)]
+              str/upper)]
     (if (STAGE-SET t) t "L0")))
 
 (defn stage-index [s]

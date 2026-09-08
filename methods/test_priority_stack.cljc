@@ -1,7 +1,7 @@
 (ns fuchi.methods.test-priority-stack
   "Priority offline stack (1)L0 (2)disclosure (3)mitsuho+hikari DESIGN — portable nbb+bb."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [fuchi.methods.priority-stack :as ps]
             [fuchi.methods.public-person :as pp]
             [fuchi.methods.edn :as edn]))

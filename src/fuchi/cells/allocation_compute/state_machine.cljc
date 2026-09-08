@@ -3,7 +3,7 @@
   1:1 port of cells/allocation_compute/state_machine.py (ADR-2606052300). Computes a tenure-weighted
   in-kind allocation; REFUSES any investment/return instrument (G1), structurally fixes cash 0 (G2)
   + owns-payoff false (G5). weight = round(log1p(min(tenure/12, 40)) × hazard/1000, 6)."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def allowed-instruments #{"in-kind-grant" "sustenance" "tooling-access" "compute-access"})
 (def forbidden-instruments
@@ -14,7 +14,7 @@
   {"phase" "init" "did" "" "instrument" "sustenance" "tenure_months" 0 "hazard_permille" 1000
    "owns_payoff" false "weight" 0.0 "refusal" "" "payload" {}})
 (defn- cell-state [state] (merge state-defaults (get state "cell_state" {})))
-(defn- kw [v] (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower-case))
+(defn- kw [v] (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower))
 (defn- to-int [v] (long (or v 0)))
 (defn- pyround6 [x] (/ (Math/round (* (double x) 1000000.0)) 1000000.0))
 

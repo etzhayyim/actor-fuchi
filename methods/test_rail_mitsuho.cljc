@@ -1,7 +1,7 @@
 (ns fuchi.methods.test-rail-mitsuho
   "food-mitsuho single-rail R1 + gated-live design tests."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [fuchi.methods.rail-mitsuho :as m]
             [fuchi.methods.live-gate :as live-gate]
             [fuchi.methods.disclosure-hold :as dh]

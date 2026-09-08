@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-public-person
   "Tests for as-of public-person derivation (ADR-2607177000)."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.lang.text] [clojure.test :refer [deftest is testing]]
             [clojure.set :as set]
             [fuchi.methods.public-person :as pp]
             [fuchi.methods.allocate :as allocate]
@@ -105,7 +105,7 @@
         stack-k (mapv (fn [x]
                         (keyword
                          (let [s (str x)]
-                           (if (clojure.string/starts-with? s ":") (subs s 1) s))))
+                           (if (kotoba.lang.text/starts-with? s ":") (subs s 1) s))))
                       (or stack []))]
     (is (= pp/PRIORITY-STACK stack-k))
     (is (= "2607177000" (str (get doc ":def/adr"))))

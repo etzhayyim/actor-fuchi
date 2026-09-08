@@ -2,7 +2,7 @@
   "Lexicon well-formedness tests for 扶持 (fuchi).
   Portable under bb and nbb (ADR-2607173000)."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [fuchi.methods.edn :as edn]))
 
 #?(:cljs

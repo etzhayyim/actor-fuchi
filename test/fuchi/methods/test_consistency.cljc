@@ -13,7 +13,7 @@
   (:require [clojure.test :refer [deftest is]]
             [clojure.edn :as canonical-edn]
             [clojure.set]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])
             [fuchi.methods.edn :as edn]))
 
