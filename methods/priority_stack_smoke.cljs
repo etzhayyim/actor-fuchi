@@ -9,7 +9,7 @@
 ;; Invariants: wellbecoming > 孫 > 子; public-person facts; no scores; cash≡0; live refuse.
 ;; Usage (from actor-fuchi root):
 ;;   nbb -cp . methods/priority_stack_smoke.cljs
-(require '[clojure.string :as str])
+(require '[kotoba.lang.text :as str])
 
 (def fs (js/require "node:fs"))
 (def path (js/require "node:path"))
