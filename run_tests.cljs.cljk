@@ -1,11 +1,11 @@
-#!/usr/bin/env nbb
+#!/usr/bin/env kbb
 ;; fuchi 扶持 — test suite host (ADR-2607173000: nbb only, no bash / no bb spawn).
 ;;
 ;; Usage (from actor-fuchi root):
-;;   nbb -cp . run_tests.cljs.cljk
+;;   kbb --backend sci -cp . run_tests.cljs.cljk
 ;;
 ;; Pure nbb suite: requires + clojure.test/run-tests in-process (no bb spawn).
-;; Prefer nbb -cp . methods/priority_stack_smoke.cljk for pure (1)(2)(3) smoke.
+;; Prefer kbb --backend sci -cp . methods/priority_stack_smoke.cljk for pure (1)(2)(3) smoke.
 (require '[clojure.test :as t])
 
 (def fs (js/require "node:fs"))
@@ -109,7 +109,7 @@
     (aset (.-env js/process) "FUCHI_ACTOR_DIR" ACTOR-DIR)
     (when repo-root
       (aset (.-env js/process) "FUCHI_REPO_ROOT" repo-root))
-    ;; nbb resolves ns from cwd + fuchi/ symlink; -cp . if launched as `nbb -cp . run_tests.cljs.cljk`
+    ;; nbb resolves ns from cwd + fuchi/ symlink; -cp . if launched as `kbb --backend sci -cp . run_tests.cljs.cljk`
     (println "→ nbb suite (in-process)" ACTOR-DIR)
     (let [req-results (mapv require-ns! SUITE)
           ok-ns (into [] (comp (filter :ok) (map :ns)) req-results)

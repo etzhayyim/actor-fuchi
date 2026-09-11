@@ -105,10 +105,10 @@ Disclosure held → refuse. Live gate default refuse. cash≡0 / score empty.
 
 ```bash
 # optional report emit (nbb host; ADR-2607173000)
-nbb -cp . -e '(require (quote fuchi.methods.public-surface-report)) (fuchi.methods.public-surface-report/write-report!)'
+kbb --backend sci -cp . -e '(require (quote fuchi.methods.public-surface-report)) (fuchi.methods.public-surface-report/write-report!)'
 # → out/public-surface.{md,edn,html}  (facts only; displacement earmark table included)
 # analyze dry-run report:
-# nbb -cp . -e '(require (quote fuchi.methods.analyze)) (fuchi.methods.analyze/-main)'
+# kbb --backend sci -cp . -e '(require (quote fuchi.methods.analyze)) (fuchi.methods.analyze/-main)'
 ```
 
 ### Displacement surface (itonami/robotics coupling)
@@ -159,12 +159,12 @@ nbb -cp . -e '(require (quote fuchi.methods.public-surface-report)) (fuchi.metho
 
 ```bash
 # one-shot offline: pipeline → scorecard → audit → public/ (plan-only; never deploys)
-nbb -cp . methods/write_all.cljk
-# equivalent: nbb -cp . -e '(require (quote fuchi.methods.displacement-pipeline)) (fuchi.methods.displacement-pipeline/write-all!)'
+kbb --backend sci -cp . methods/write_all.cljk
+# equivalent: kbb --backend sci -cp . -e '(require (quote fuchi.methods.displacement-pipeline)) (fuchi.methods.displacement-pipeline/write-all!)'
 # → out/displacement-scorecard.{md,edn} + out/pipeline-audit-ledger.ednl + public/*
 #    deployed=false wrangler-invoked=false land-grant-executed=0 cash≡0
 
-nbb -cp . -e '(require (quote fuchi.methods.pages-publish)) (fuchi.methods.pages-publish/write-pages!)'
+kbb --backend sci -cp . -e '(require (quote fuchi.methods.pages-publish)) (fuchi.methods.pages-publish/write-pages!)'
 # → public/index.html + facts.edn only  (point Cloudflare Pages here; OOB deploy)
 ```
 
@@ -275,14 +275,14 @@ fuchi/
 ## Run
 
 ```bash
-nbb -cp . run_tests.cljs.cljk       # offline suite host (ADR-2607173000; no .sh / no bb)
-nbb -cp . methods/readiness_check.cljk   # design + priority-stack SSoT (fast)
-nbb -cp . methods/priority_stack_smoke.cljk
-nbb -cp . methods/write_all.cljk   # scorecard+audit+surplus+public (never deploys)
+kbb --backend sci -cp . run_tests.cljs.cljk       # offline suite host (ADR-2607173000; no .sh / no bb)
+kbb --backend sci -cp . methods/readiness_check.cljk   # design + priority-stack SSoT (fast)
+kbb --backend sci -cp . methods/priority_stack_smoke.cljk
+kbb --backend sci -cp . methods/write_all.cljk   # scorecard+audit+surplus+public (never deploys)
 # land when terminal works:
-# nbb methods/_land_ss_gated_wip.cljk
+# kbb --backend sci methods/_land_ss_gated_wip.cljk
 # publish:
-# nbb methods/publish.cljk
+# kbb --backend sci methods/publish.cljk
 ```
 
 ## Honest R0/R1

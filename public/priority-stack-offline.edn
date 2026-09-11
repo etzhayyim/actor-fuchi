@@ -1,5 +1,5 @@
 ;; Machine-readable priority stack SSoT (facts only).
-;; Regen: nbb -cp . methods/write_all.cljk  or  pages-publish/write-pages!
+;; Regen: kbb --backend sci -cp . methods/write_all.cljk  or  pages-publish/write-pages!
 ;; design: data/priority-stack-design.edn · api: fuchi.methods.priority-stack/run-offline
 {:path "priority-stack-offline"
  :priority-order [[1 "L0 enroll offline scaffold"]

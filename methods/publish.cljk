@@ -1,4 +1,4 @@
-#!/usr/bin/env nbb
+#!/usr/bin/env kbb
 ;; fuchi self-publish — nbb host only (ADR-2607173000; no bash / no bb entry).
 ;; Prefer shared kototama publish.cljs when present; else offline write-pages!
 ;; (never live deploy).

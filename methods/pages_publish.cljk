@@ -64,7 +64,7 @@
        "SSoT API: `fuchi.methods.priority-stack/run-offline` ·"
        " design: `data/priority-stack-design.edn` ·"
        " machine facts: `priority-stack-offline.edn` ·"
-       " smoke: `nbb -cp . methods/priority_stack_smoke.cljk`.\n\n"
+       " smoke: `kbb --backend sci -cp . methods/priority_stack_smoke.cljk`.\n\n"
        "Care-first paths (孫/子 before present): L0 care-first+mitsuho,"
        " L0 care-first+hikari, L0 care-first+mitsuho+hikari dual rail,"
        " L0 care+housing both-refused multi-gen substrate,"

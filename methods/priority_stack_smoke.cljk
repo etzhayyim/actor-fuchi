@@ -1,4 +1,4 @@
-#!/usr/bin/env nbb
+#!/usr/bin/env kbb
 ;; priority_stack_smoke.cljs — offline smoke for robotics/itonami × etzhayyim SS priorities.
 ;;
 ;; (1) L0 enroll offline scaffold
@@ -8,7 +8,7 @@
 ;;
 ;; Invariants: wellbecoming > 孫 > 子; public-person facts; no scores; cash≡0; live refuse.
 ;; Usage (from actor-fuchi root):
-;;   nbb -cp . methods/priority_stack_smoke.cljk
+;;   kbb --backend sci -cp . methods/priority_stack_smoke.cljk
 (require '[kotoba.lang.text :as str])
 
 (def fs (js/require "node:fs"))
