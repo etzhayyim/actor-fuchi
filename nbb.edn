@@ -1,7 +1,7 @@
 ;; ADR-2607173000 — nbb-only script host (no bb.edn).
-;; Prefer: nbb -cp . methods/priority_stack_smoke.cljs
-;;         nbb -cp . run_tests.cljs
-;;         nbb -cp . methods/readiness_check.cljs
+;; Prefer: nbb -cp . methods/priority_stack_smoke.cljk
+;;         nbb -cp . run_tests.cljs.cljk
+;;         nbb -cp . methods/readiness_check.cljk
 {:paths ["." "src" "test"]
  :deps {
         ;; Declared HERE and not only in deps.edn: nbb reads nbb.edn and does NOT

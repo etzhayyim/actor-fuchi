@@ -47,18 +47,18 @@ Priority order for covenantal SS offline work:
 
 | Module | Role |
 |---|---|
-| [`methods/priority_stack.cljc`](methods/priority_stack.cljc) | SSoT offline stack (1)L0 (2)disclosure held-stress (3)mitsuho R1→gated DESIGN |
+| [`methods/priority_stack.cljk`](methods/priority_stack.cljk) | SSoT offline stack (1)L0 (2)disclosure held-stress (3)mitsuho R1→gated DESIGN |
 | [`data/priority-stack-design.edn`](data/priority-stack-design.edn) | machine-readable design for priorities (1)(2)(3) |
 | [`public/priority-stack-offline.edn`](public/priority-stack-offline.edn) | static machine facts for (1)(2)(3) SSoT (pages package) |
-| [`methods/l0_enroll.cljc`](methods/l0_enroll.cljc) | L0 enroll + disclosure SM tick; `enroll-with-all-seven-rails` (six in-kind + warifu residual) |
+| [`methods/l0_enroll.cljk`](methods/l0_enroll.cljk) | L0 enroll + disclosure SM tick; `enroll-with-all-seven-rails` (six in-kind + warifu residual) |
 | [`lex/commitmentVow.edn`](lex/commitmentVow.edn) | §1.16.3a lexicon |
 | [`methods/disclosure_hold.cljc`](methods/disclosure_hold.cljc) | open/held/exit-suspended SM |
 | [`methods/disclosure_continuity.cljc`](methods/disclosure_continuity.cljc) | continuity tick / tick-series (stale → hold) |
-| [`methods/ss_offline_path.cljc`](methods/ss_offline_path.cljc) | L0→ladder L4→stage floors→all 7 rails membranes + R2 refuse |
-| [`methods/displacement_l0_path.cljc`](methods/displacement_l0_path.cljc) | funded itonami displacement → L0 + L4 multi-gen membranes + held-stress embed |
-| [`methods/displacement_tenure.cljc`](methods/displacement_tenure.cljc) | L4→L6 tenure climb; carries L0 held-stress |
-| [`methods/displacement_gov.cljc`](methods/displacement_gov.cljc) | G7 package-subject; preserves held-stress on gov rows + batch counters |
-| [`methods/displacement_pipeline.cljc`](methods/displacement_pipeline.cljc) | E2E offline: L0/L4/L6 + G7 + scorecard + audit + public package |
+| [`methods/ss_offline_path.cljk`](methods/ss_offline_path.cljk) | L0→ladder L4→stage floors→all 7 rails membranes + R2 refuse |
+| [`methods/displacement_l0_path.cljk`](methods/displacement_l0_path.cljk) | funded itonami displacement → L0 + L4 multi-gen membranes + held-stress embed |
+| [`methods/displacement_tenure.cljk`](methods/displacement_tenure.cljk) | L4→L6 tenure climb; carries L0 held-stress |
+| [`methods/displacement_gov.cljk`](methods/displacement_gov.cljk) | G7 package-subject; preserves held-stress on gov rows + batch counters |
+| [`methods/displacement_pipeline.cljk`](methods/displacement_pipeline.cljk) | E2E offline: L0/L4/L6 + G7 + scorecard + audit + public package |
 
 **Entry helpers** (all `live=false`, cash≡0, default refuse):
 
@@ -87,10 +87,10 @@ Live mint/pin/mail/land-grant/loan remain refuse-by-default (G10). No personal s
 
 | Module | Role |
 |---|---|
-| [`methods/rail_mitsuho.cljc`](methods/rail_mitsuho.cljc) | R1 dry + gated-live **plan**; care-first after care/housing (孫/子); no produce; `design-public-facts` |
+| [`methods/rail_mitsuho.cljk`](methods/rail_mitsuho.cljk) | R1 dry + gated-live **plan**; care-first after care/housing (孫/子); no produce; `design-public-facts` |
 | [`data/rail-mitsuho-design.edn`](data/rail-mitsuho-design.edn) | design SSoT + care-first-order + itonami-recovery |
 | [`lex/mitsuhoRailDispatch.edn`](lex/mitsuhoRailDispatch.edn) | dispatch package lexicon |
-| [`methods/rail_hikari.cljc`](methods/rail_hikari.cljc) | energy sibling; care-first-hikari-path; no generate live; `design-public-facts` |
+| [`methods/rail_hikari.cljk`](methods/rail_hikari.cljk) | energy sibling; care-first-hikari-path; no generate live; `design-public-facts` |
 | [`data/rail-hikari-design.edn`](data/rail-hikari-design.edn) | design SSoT parity with mitsuho |
 | scorecard / public surface | all 7 rails `:scorecard/rail-*-design` + `:scorecard/rail-design-catalog` discovery (live-produce never) |
 
@@ -100,8 +100,8 @@ Disclosure held → refuse. Live gate default refuse. cash≡0 / score empty.
 
 | Module | Role |
 |---|---|
-| [`methods/rail_hikari.cljc`](methods/rail_hikari.cljc) | energy-hikari R1 + gated-live plan |
-| [`methods/public_surface_report.cljc`](methods/public_surface_report.cljc) | facts-only MD/EDN public surface (`out/public-surface.*`) |
+| [`methods/rail_hikari.cljk`](methods/rail_hikari.cljk) | energy-hikari R1 + gated-live plan |
+| [`methods/public_surface_report.cljk`](methods/public_surface_report.cljk) | facts-only MD/EDN public surface (`out/public-surface.*`) |
 
 ```bash
 # optional report emit (nbb host; ADR-2607173000)
@@ -120,7 +120,7 @@ nbb -cp . -e '(require (quote fuchi.methods.public-surface-report)) (fuchi.metho
 
 | Module | Role |
 |---|---|
-| [`methods/itonami_bridge.cljc`](methods/itonami_bridge.cljc) | itonami displacement EDN → couple events / public facts |
+| [`methods/itonami_bridge.cljk`](methods/itonami_bridge.cljk) | itonami displacement EDN → couple events / public facts |
 | [`data/itonami-displacement-events.edn`](data/itonami-displacement-events.edn) | representative surplus events |
 | [`methods/mitsuho_receive.cljc`](methods/mitsuho_receive.cljc) | food dry-ack + `gated-receive-status` (produce not invoked; default refuse) |
 | [`methods/hikari_receive.cljc`](methods/hikari_receive.cljc) | energy dry-ack + `gated-receive-status` (generate not invoked; default refuse) |
@@ -128,38 +128,38 @@ nbb -cp . -e '(require (quote fuchi.methods.public-surface-report)) (fuchi.metho
 | [`methods/hikari_produce_plan.cljc`](methods/hikari_produce_plan.cljc) | dry kWh floor + `gated-produce-status` (generate-executed=false) |
 | [`methods/care_iyashi_receive.cljc`](methods/care_iyashi_receive.cljc) | care dry-ack + `gated-receive-status` (delivery not invoked; 孫/子) |
 | [`methods/care_iyashi_produce_plan.cljc`](methods/care_iyashi_produce_plan.cljc) | dry care-hours + `gated-produce-status` (delivery-executed=false) |
-| [`methods/rail_housing_commons.cljc`](methods/rail_housing_commons.cljc) | housing-commons (LANDS.md) R1+gated plan |
-| [`methods/rail_tooling_okaimono.cljc`](methods/rail_tooling_okaimono.cljc) | tooling-okaimono R1+gated plan (vocation recovery) |
-| [`methods/tooling_okaimono_receive.cljc`](methods/tooling_okaimono_receive.cljc) | tooling dry-ack + `gated-receive-status` (fulfillment not invoked) |
-| [`methods/tooling_okaimono_produce_plan.cljc`](methods/tooling_okaimono_produce_plan.cljc) | dry tool-units + `gated-produce-status` (fulfillment-executed=false) |
-| [`methods/rail_compute_murakumo.cljc`](methods/rail_compute_murakumo.cljc) | compute-murakumo R1+gated plan (mesh access) |
-| [`methods/compute_murakumo_receive.cljc`](methods/compute_murakumo_receive.cljc) | compute dry-ack + `gated-receive-status` (quota not invoked) |
-| [`methods/compute_murakumo_produce_plan.cljc`](methods/compute_murakumo_produce_plan.cljc) | dry GPU-hours + `gated-produce-status` (quota-executed=false) |
+| [`methods/rail_housing_commons.cljk`](methods/rail_housing_commons.cljk) | housing-commons (LANDS.md) R1+gated plan |
+| [`methods/rail_tooling_okaimono.cljk`](methods/rail_tooling_okaimono.cljk) | tooling-okaimono R1+gated plan (vocation recovery) |
+| [`methods/tooling_okaimono_receive.cljk`](methods/tooling_okaimono_receive.cljk) | tooling dry-ack + `gated-receive-status` (fulfillment not invoked) |
+| [`methods/tooling_okaimono_produce_plan.cljk`](methods/tooling_okaimono_produce_plan.cljk) | dry tool-units + `gated-produce-status` (fulfillment-executed=false) |
+| [`methods/rail_compute_murakumo.cljk`](methods/rail_compute_murakumo.cljk) | compute-murakumo R1+gated plan (mesh access) |
+| [`methods/compute_murakumo_receive.cljk`](methods/compute_murakumo_receive.cljk) | compute dry-ack + `gated-receive-status` (quota not invoked) |
+| [`methods/compute_murakumo_produce_plan.cljk`](methods/compute_murakumo_produce_plan.cljk) | dry GPU-hours + `gated-produce-status` (quota-executed=false) |
 | [`methods/housing_commons_receive.cljc`](methods/housing_commons_receive.cljc) | housing dry-ack + `gated-receive-status` (land grant not invoked; 孫/子) |
 | [`methods/housing_commons_produce_plan.cljc`](methods/housing_commons_produce_plan.cljc) | dry housing-months + `gated-produce-status` (grant-executed=false) |
-| [`methods/rail_liquidity_warifu.cljc`](methods/rail_liquidity_warifu.cljc) | liquidity-warifu member-principal residual (cash≡0) |
-| [`methods/liquidity_warifu_receive.cljc`](methods/liquidity_warifu_receive.cljc) | warifu dry-ack + `gated-receive-status` (loan not invoked; no produce plan) |
-| [`methods/ss_offline_path.cljc`](methods/ss_offline_path.cljc) | L0→ladder→disclosure→all 7 rails R1/gated-receive/produce DESIGN (default refuse) + full-chain refuse facts + R2 refuse |
-| [`methods/rail_care_iyashi.cljc`](methods/rail_care_iyashi.cljc) | care-iyashi (子・孫 wellbecoming) R1+gated plan |
-| [`methods/itonami_surplus_ledger.cljc`](methods/itonami_surplus_ledger.cljc) | offline surplus ledger (cash-to-workers≡0; G2) |
-| [`methods/displacement_l0_path.cljc`](methods/displacement_l0_path.cljc) | funded displacement → L0 + food/care/energy + L0→L1 |
+| [`methods/rail_liquidity_warifu.cljk`](methods/rail_liquidity_warifu.cljk) | liquidity-warifu member-principal residual (cash≡0) |
+| [`methods/liquidity_warifu_receive.cljk`](methods/liquidity_warifu_receive.cljk) | warifu dry-ack + `gated-receive-status` (loan not invoked; no produce plan) |
+| [`methods/ss_offline_path.cljk`](methods/ss_offline_path.cljk) | L0→ladder→disclosure→all 7 rails R1/gated-receive/produce DESIGN (default refuse) + full-chain refuse facts + R2 refuse |
+| [`methods/rail_care_iyashi.cljk`](methods/rail_care_iyashi.cljk) | care-iyashi (子・孫 wellbecoming) R1+gated plan |
+| [`methods/itonami_surplus_ledger.cljk`](methods/itonami_surplus_ledger.cljk) | offline surplus ledger (cash-to-workers≡0; G2) |
+| [`methods/displacement_l0_path.cljk`](methods/displacement_l0_path.cljk) | funded displacement → L0 + food/care/energy + L0→L1 |
 | [`methods/liberation_ladder.cljc`](methods/liberation_ladder.cljc) | offline L0–L6 stage climb (disclosure-gated; no mint) |
 | [`methods/stage_sustenance.cljc`](methods/stage_sustenance.cljc) | stage rails-hint → dry floor packages (L3 vocation+) |
 | [`methods/disclosure_continuity.cljc`](methods/disclosure_continuity.cljc) | continuous disclosure tick (stale → hold) |
 | [`methods/displacement_book.cljc`](methods/displacement_book.cljc) | offline toritate/kanae book for displacement floors |
 | [`methods/displacement_couple.cljc`](methods/displacement_couple.cljc) | G2 earmark headroom vs booked floors (commit_live refuse) |
-| [`methods/displacement_scorecard.cljc`](methods/displacement_scorecard.cljc) | E2E offline scorecard (all live legs refused) |
-| [`methods/displacement_tenure.cljc`](methods/displacement_tenure.cljc) | optional L4→L5/L6 tenure climb + re-book/G2 |
-| [`methods/displacement_pipeline.cljc`](methods/displacement_pipeline.cljc) | single offline entry: L4 + L6 tenure + G7 + scorecard + optional public package |
-| [`methods/pipeline_audit_ledger.cljc`](methods/pipeline_audit_ledger.cljc) | append-only offline pipeline audit (`.ednl`) |
-| [`methods/displacement_gov.cljc`](methods/displacement_gov.cljc) | G7 route + dry sbt-vote/council packages (no finalize) |
-| [`methods/r2_execute.cljc`](methods/r2_execute.cljc) | R2 execute membrane (default refuse; executed=false) |
-| [`methods/pages_publish.cljc`](methods/pages_publish.cljc) | Pages-ready `public/` static package (no deploy); README documents offline priority path (L0/disclosure/all-seven/care-first) |
-| [`methods/pages_deploy.cljc`](methods/pages_deploy.cljc) | Pages deploy membrane (default refuse; wrangler not invoked) |
+| [`methods/displacement_scorecard.cljk`](methods/displacement_scorecard.cljk) | E2E offline scorecard (all live legs refused) |
+| [`methods/displacement_tenure.cljk`](methods/displacement_tenure.cljk) | optional L4→L5/L6 tenure climb + re-book/G2 |
+| [`methods/displacement_pipeline.cljk`](methods/displacement_pipeline.cljk) | single offline entry: L4 + L6 tenure + G7 + scorecard + optional public package |
+| [`methods/pipeline_audit_ledger.cljk`](methods/pipeline_audit_ledger.cljk) | append-only offline pipeline audit (`.ednl`) |
+| [`methods/displacement_gov.cljk`](methods/displacement_gov.cljk) | G7 route + dry sbt-vote/council packages (no finalize) |
+| [`methods/r2_execute.cljk`](methods/r2_execute.cljk) | R2 execute membrane (default refuse; executed=false) |
+| [`methods/pages_publish.cljk`](methods/pages_publish.cljk) | Pages-ready `public/` static package (no deploy); README documents offline priority path (L0/disclosure/all-seven/care-first) |
+| [`methods/pages_deploy.cljk`](methods/pages_deploy.cljk) | Pages deploy membrane (default refuse; wrangler not invoked) |
 
 ```bash
 # one-shot offline: pipeline → scorecard → audit → public/ (plan-only; never deploys)
-nbb -cp . methods/write_all.cljs
+nbb -cp . methods/write_all.cljk
 # equivalent: nbb -cp . -e '(require (quote fuchi.methods.displacement-pipeline)) (fuchi.methods.displacement-pipeline/write-all!)'
 # → out/displacement-scorecard.{md,edn} + out/pipeline-audit-ledger.ednl + public/*
 #    deployed=false wrangler-invoked=false land-grant-executed=0 cash≡0
@@ -275,14 +275,14 @@ fuchi/
 ## Run
 
 ```bash
-nbb -cp . run_tests.cljs       # offline suite host (ADR-2607173000; no .sh / no bb)
-nbb -cp . methods/readiness_check.cljs   # design + priority-stack SSoT (fast)
-nbb -cp . methods/priority_stack_smoke.cljs
-nbb -cp . methods/write_all.cljs   # scorecard+audit+surplus+public (never deploys)
+nbb -cp . run_tests.cljs.cljk       # offline suite host (ADR-2607173000; no .sh / no bb)
+nbb -cp . methods/readiness_check.cljk   # design + priority-stack SSoT (fast)
+nbb -cp . methods/priority_stack_smoke.cljk
+nbb -cp . methods/write_all.cljk   # scorecard+audit+surplus+public (never deploys)
 # land when terminal works:
-# nbb methods/_land_ss_gated_wip.cljs
+# nbb methods/_land_ss_gated_wip.cljk
 # publish:
-# nbb methods/publish.cljs
+# nbb methods/publish.cljk
 ```
 
 ## Honest R0/R1

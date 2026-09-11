@@ -9,7 +9,7 @@ Priority: wellbecoming > mago > ko > present.
 2. **Disclosure hold + continuity** — open/held/exit-suspended SM; stale/falsehood → hold entitlements (public-person may remain).
 3. **mitsuho (care-first) R1→gated DESIGN** — food after care/housing (孫/子); default refuse; then all-seven membranes (care/housing/food/energy/tooling/compute + liquidity residual); R2 execute refuse; land-grant never; loan never; live-produce never.
 
-SSoT API: `fuchi.methods.priority-stack/run-offline` · design: `data/priority-stack-design.edn` · machine facts: `priority-stack-offline.edn` · smoke: `nbb -cp . methods/priority_stack_smoke.cljs`.
+SSoT API: `fuchi.methods.priority-stack/run-offline` · design: `data/priority-stack-design.edn` · machine facts: `priority-stack-offline.edn` · smoke: `nbb -cp . methods/priority_stack_smoke.cljk`.
 
 Care-first paths (孫/子 before present): L0 care-first+mitsuho, L0 care-first+hikari, L0 care-first+mitsuho+hikari dual rail, L0 care+housing both-refused multi-gen substrate, L0 multi-gen substrate + mitsuho+hikari (L4 four-rail), L0 full-inkind six-rails (multi-gen + vocation / itonami), L0 vocation recovery (tooling+compute only), L0 liquidity residual (warifu member-principal; loan never), L0 all-seven substrate (capstone six in-kind + residual), L0 offline priority path catalog (discovery index), rail DESIGN catalog (all-seven single-rail discovery; care→housing→food→energy→tooling→compute→liquidity).
 All nine ladder paths embed priority-(2) held-stress (stale disclosure → ladder refuse; cash≡0; live=false).

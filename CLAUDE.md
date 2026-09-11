@@ -26,7 +26,7 @@ public-person?(p,t) ≔ covenant?(p,t) ∧ receives-ss?(p,t) ∧ ¬exit-suspende
 - **SCORE**: empty (no leaderboard)
 - Disclosure fail → **hold** entitlements; history retained on exit
 - SSoT: `data/public-person-dynamic.edn` + `methods/public_person.cljc`
-- L0 offline enroll: `methods/l0_enroll.cljc` (triple-permanent stubs only; no live mint)
+- L0 offline enroll: `methods/l0_enroll.cljk` (triple-permanent stubs only; no live mint)
 - Disclosure continuity: `methods/disclosure_hold.cljc` (open/held/exit-suspended)
 - Offline priority ladder paths (robotics/itonami SS scaffold): nine paths in
   `PRIORITY-PATH-CATALOG` / `data/l0-offline-priority-paths-design.edn` — all embed
@@ -37,8 +37,8 @@ public-person?(p,t) ≔ covenant?(p,t) ∧ receives-ss?(p,t) ∧ ¬exit-suspende
   `data/rail-design-catalog.edn` — order care→housing→food→energy→tooling→
   compute→liquidity; live-produce never; loan/land-grant never. Scorecard keys
   `:scorecard/rail-*-design` + `:scorecard/rail-design-catalog`; public report
-  mirrors. Land when terminal works: `nbb methods/_land_ss_gated_wip.cljs`.
-- Displacement→L0 (`methods/displacement_l0_path.cljc`): funded itonami surplus →
+  mirrors. Land when terminal works: `nbb methods/_land_ss_gated_wip.cljk`.
+- Displacement→L0 (`methods/displacement_l0_path.cljk`): funded itonami surplus →
   L0 enroll → L4 multi-gen (care/housing first) + vocation rails R1→gated refuse;
   default embeds held-stress per subject (ladder refuse when disclosure stale).
   Tenure climb (`displacement_tenure.cljc`) carries L0 held-stress into L5/L6;
@@ -82,14 +82,14 @@ public-person?(p,t) ≔ covenant?(p,t) ∧ receives-ss?(p,t) ∧ ¬exit-suspende
   — do not invent a second tenure formula.
 - New in-kind needs → add an `:envelope/line` + a rail in `LINE_TO_RAIL`, mapped to a **producing
   actor** (mitsuho/hikari/okaimono/iyashi/commons-land/warifu). Never add a rail that pays cash.
-- Keep tests green: `nbb -cp . run_tests.cljs` (nbb in-process; ADR-2607173000; no bash / no bb).
+- Keep tests green: `nbb -cp . run_tests.cljs.cljk` (nbb in-process; ADR-2607173000; no bash / no bb).
   Readiness / priority stack SSoT:
-  `nbb -cp . methods/readiness_check.cljs` then
-  `nbb -cp . methods/priority_stack_smoke.cljs` (L0 + disclosure + mitsuho R1→gated).
+  `nbb -cp . methods/readiness_check.cljk` then
+  `nbb -cp . methods/priority_stack_smoke.cljk` (L0 + disclosure + mitsuho R1→gated).
   Regenerate full offline package (portable under nbb):
-  `nbb -cp . methods/write_all.cljs`
+  `nbb -cp . methods/write_all.cljk`
   (or `write-all!` via `fuchi.methods.displacement-pipeline` / pages-deploy package).
-  Publish host: `nbb methods/publish.cljs`. Land: `nbb methods/_land_ss_gated_wip.cljs`.
+  Publish host: `nbb methods/publish.cljk`. Land: `nbb methods/_land_ss_gated_wip.cljk`.
   The `test_charter_invariants.cljc` suite parses the
   ontology + lexicons + code and will fail if an invariant drifts out of any of the three places —
   including the R1-live locks (every leg refused by default; `couple` is Lv7).
