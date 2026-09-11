@@ -8,7 +8,7 @@
 ;;   (4) data/itonami-offline-ss-readiness.edn layer :priority-stack-ssot
 ;;
 ;; Usage (from actor-fuchi root):
-;;   nbb -cp . methods/readiness_check.cljs
+;;   nbb -cp . methods/readiness_check.cljk
 ;;
 ;; cash≡0 · live refuse · no scores · ADR-2607173000 nbb only.
 (require '[kotoba.lang.text :as str])

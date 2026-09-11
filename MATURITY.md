@@ -16,7 +16,7 @@
 
 ## R0 + R1 a/b/c/d + R1 live-but-gated evidence
 
-- **Tests green via `nbb -cp . run_tests.cljs`** (nbb in-process / ADR-2607173000; no bash, no bb
+- **Tests green via `nbb -cp . run_tests.cljs.cljk`** (nbb in-process / ADR-2607173000; no bash, no bb
   spawn): allocate/route/provision/vote/book/couple + live_gate + analyze +
   charter-invariants + lexicons + cells + offline SS path suites (L0 enroll, disclosure, all-seven
   rails, displacement pipeline, pages publish/deploy).
@@ -47,7 +47,7 @@
 
 Priority stack offline (wellbecoming > 孫 > 子; cash≡0; scores empty; live default refuse):
 
-1. **L0 enroll** — `methods/l0_enroll.cljc` (`enroll`, `enroll-with-all-seven-rails`)
+1. **L0 enroll** — `methods/l0_enroll.cljk` (`enroll`, `enroll-with-all-seven-rails`)
 2. **Disclosure continuity + hold** — hold SM + `apply-disclosure-tick` / `continuity-stress` /
    `exit-suspend` / `re-affirm` / `try-ladder-advance`
 3. **Rails R1→gated DESIGN** — care/housing first, then food/energy (mitsuho+hikari dual rail),
@@ -80,12 +80,12 @@ README with last-run status lines).
   compute→liquidity; live-produce-never). Package + pipeline + report path are nbb-portable:
   package writers, pipeline, scorecard, surplus ledger, all-seven design-edn, and offline path
   tests (pipeline/scorecard/disclosure/ss/itonami/public-person/audit).
-  SSoT: `methods/priority_stack.cljc` (`run-offline` = (1)L0 (2)disclosure (3)mitsuho).
-  Fast check: `nbb -cp . methods/readiness_check.cljs`.
-  Smoke: `nbb -cp . methods/priority_stack_smoke.cljs`. Land: `nbb methods/_land_ss_gated_wip.cljs`
-  (prefers `write-all!`). Publish: `nbb methods/publish.cljs` (no `.sh` / `.bb` entrypoints).
+  SSoT: `methods/priority_stack.cljk` (`run-offline` = (1)L0 (2)disclosure (3)mitsuho).
+  Fast check: `nbb -cp . methods/readiness_check.cljk`.
+  Smoke: `nbb -cp . methods/priority_stack_smoke.cljk`. Land: `nbb methods/_land_ss_gated_wip.cljk`
+  (prefers `write-all!`). Publish: `nbb methods/publish.cljk` (no `.sh` / `.bb` entrypoints).
   **Landing** may still be blocked when agent terminal spawn fails —
-  use `nbb methods/_land_ss_gated_wip.cljs` when terminal works.
+  use `nbb methods/_land_ss_gated_wip.cljk` when terminal works.
 - No live disbursement / provisioning / land grant / binding vote — all G10 (Council Lv6+ +
   operator; invariant-adjacent Lv7+). The R1 a/b/c engines are built + tested **offline**; flipping
   them to live is the gated R1-live phase.

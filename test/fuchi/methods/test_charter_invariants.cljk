@@ -16,7 +16,7 @@
   EDN fixtures (ontology schema + lexicons) load via fuchi.methods.edn (keywords kept as \":…\"
   STRINGS, byte-for-byte the Python `load_edn` shape); resolved *file*-relative behind #?(:clj …)
   (the test_lexicons.cljc / test_consistency.cljc pattern):
-    …/fuchi/methods/test_charter_invariants.cljc → up 2 = fuchi (_ROOT); up 2 more = repo root.
+    …/fuchi/methods/test_charter_invariants.cljk → up 2 = fuchi (_ROOT); up 2 more = repo root.
   The Python imports `from allocate import …` become requires of the sibling .cljc modules.
 
   PROVENANCE NOTE — one Python test is omitted (it FAILS against its own source today, see below):

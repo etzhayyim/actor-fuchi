@@ -7,7 +7,7 @@
   (manifest.jsonld) — read with a self-contained minimal JSON reader (no cheshire/data.json),
   string-keyed exactly like Python `json.loads`. Fixtures are resolved *file*-relative behind
   #?(:clj …) (the test_pipeline.cljc / test_lexicons.cljc pattern):
-    …/fuchi/methods/test_consistency.cljc → up 2 = fuchi (_ACTOR); up 2 more = repo root (_ROOT).
+    …/fuchi/methods/test_consistency.cljk → up 2 = fuchi (_ACTOR); up 2 more = repo root (_ROOT).
 
   The Python `_run` demo printer is omitted (clojure.test provides the runner)."
   (:require [clojure.test :refer [deftest is]]

@@ -123,7 +123,7 @@
     (is (= [] (:score-surface inv)))
     (is (= [1 2 3] (:priority-order-ns inv)))
     (is (= 3 (:order-count inv)))
-    (is (= "methods/priority_stack.cljc" (:module inv)))
+    (is (= "methods/priority_stack.cljk" (:module inv)))
     (is (= "run-offline" (:api inv)))))
 
 (deftest test-l0-paths-design-invariants
