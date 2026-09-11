@@ -61,4 +61,4 @@
    :scorecard :audit-ledger :pipeline-top :public-md-html :pages-deploy-readme]
   :invariants {:cash-usd-micros 0 :live false :score-surface []
                :loan-never true :land-grant-never true}
-  :land "nbb methods/_land_ss_gated_wip.cljk when terminal available"}}
+  :land "kbb --backend sci methods/_land_ss_gated_wip.cljk when terminal available"}}

@@ -50,7 +50,7 @@ Priority: wellbecoming > mago(孫) > ko(子) > present. cash≡0. live=false. No
 
 ## Priority stack offline SSoT (1)L0 (2)disclosure (3)care-housing→mitsuho+hikari→all-seven
 
-- ok: true (regen via `nbb -cp . methods/write_all.cljk` / scorecard build)
+- ok: true (regen via `kbb --backend sci -cp . methods/write_all.cljk` / scorecard build)
 - (1) L0 enroll offline scaffold — stage L0, published=false, cash≡0
 - (2) disclosure hold + continuity — open may-flow; stale held; tick-series reopen
 - (3) care-housing-first-path — both refuse; land-grant never; held-stress ladder refuse (孫/子)

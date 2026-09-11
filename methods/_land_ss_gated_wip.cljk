@@ -1,9 +1,9 @@
-#!/usr/bin/env nbb
+#!/usr/bin/env kbb
 ;; _land_ss_gated_wip.cljs — one-shot land when terminal is available.
 ;; DELETE after successful push (WIP land helper, not permanent product code).
 ;;
 ;; Usage (from actor-fuchi root):
-;;   nbb methods/_land_ss_gated_wip.cljk
+;;   kbb --backend sci methods/_land_ss_gated_wip.cljk
 ;;
 ;; ADR-2607173000: nbb host only (no bash land script).
 ;; cash≡0 · live refuse · no force-push · no live deploy.
@@ -70,7 +70,7 @@
     (str/trim (str (:out r)))))
 
 (defn- ensure-fuchi-symlink!
-  "nbb -cp . and run_tests need fuchi/ → . for ns fuchi.methods.*"
+  "kbb --backend sci -cp . and run_tests need fuchi/ → . for ns fuchi.methods.*"
   []
   (let [link (.join path DIR "fuchi")]
     (when-not (exists? link)
@@ -103,21 +103,21 @@
   (let [ready (.join path DIR "methods/readiness_check.cljk")
         smoke (.join path DIR "methods/priority_stack_smoke.cljk")]
     (when (exists? ready)
-      (println "→ nbb -cp . methods/readiness_check.cljk")
-      (run! ["nbb" "-cp" "." ready]))
+      (println "→ kbb --backend sci -cp . methods/readiness_check.cljk")
+      (run! ["kbb" "--backend" "sci" "-cp" "." ready]))
     (when-not (exists? smoke)
       (println "skip priority_stack_smoke (missing)")
       (throw (js/Error. (str "missing " smoke))))
-    (println "→ nbb -cp . methods/priority_stack_smoke.cljk")
-    (run! ["nbb" "-cp" "." smoke])))
+    (println "→ kbb --backend sci -cp . methods/priority_stack_smoke.cljk")
+    (run! ["kbb" "--backend" "sci" "-cp" "." smoke])))
 
 (defn- step-tests!
   []
   (let [suite (.join path DIR "run_tests.cljs.cljk")]
     (when-not (exists? suite)
       (throw (js/Error. (str "missing " suite))))
-    (println "→ nbb -cp . run_tests.cljs.cljk")
-    (run! ["nbb" "-cp" "." suite])))
+    (println "→ kbb --backend sci -cp . run_tests.cljs.cljk")
+    (run! ["kbb" "--backend" "sci" "-cp" "." suite])))
 
 (defn- step-regen-package!
   "Prefer methods/write_all.cljk (nbb entry) → write-all! → deploy package → pages."
@@ -127,25 +127,25 @@
         form-all "(require (quote fuchi.methods.displacement-pipeline)) (fuchi.methods.displacement-pipeline/write-all!)"
         form-deploy "(require (quote fuchi.methods.pages-deploy)) (fuchi.methods.pages-deploy/write-deploy-package!)"
         form-pages "(require (quote fuchi.methods.pages-publish)) (fuchi.methods.pages-publish/write-pages!)"]
-    (println "→ nbb -cp . methods/write_all.cljk")
+    (println "→ kbb --backend sci -cp . methods/write_all.cljk")
     (let [r0 (if (exists? write-all-js)
-               (run ["nbb" "-cp" "." write-all-js])
+               (run ["kbb" "--backend" "sci" "-cp" "." write-all-js])
                {:exit 1})]
       (if (zero? (:exit r0))
         (println "write_all.cljs ok (scorecard+audit+surplus+public)")
         (do
-          (println "write_all.cljs exit=" (:exit r0) "→ nbb -e write-all!")
-          (let [r (run ["nbb" "-cp" "." "-e" form-all])]
+          (println "write_all.cljs exit=" (:exit r0) "→ kbb --backend sci -e write-all!")
+          (let [r (run ["kbb" "--backend" "sci" "-cp" "." "-e" form-all])]
             (if (zero? (:exit r))
               (println "write-all! ok")
               (do
                 (println "write-all! failed exit=" (:exit r) "→ try write-deploy-package!")
-                (let [r2 (run ["nbb" "-cp" "." "-e" form-deploy])]
+                (let [r2 (run ["kbb" "--backend" "sci" "-cp" "." "-e" form-deploy])]
                   (if (zero? (:exit r2))
                     (println "deploy package ok")
                     (do
                       (println "write-deploy-package! failed exit=" (:exit r2) "→ write-pages!")
-                      (let [r3 (run ["nbb" "-cp" "." "-e" form-pages])]
+                      (let [r3 (run ["kbb" "--backend" "sci" "-cp" "." "-e" form-pages])]
                         (if (zero? (:exit r3))
                           (println "pages package ok")
                           (println "WARN: package regen failed (continuing land) exit=" (:exit r3)))))))))))))))

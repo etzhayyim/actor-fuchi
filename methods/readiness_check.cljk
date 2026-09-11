@@ -1,4 +1,4 @@
-#!/usr/bin/env nbb
+#!/usr/bin/env kbb
 ;; readiness_check.cljs — offline readiness smoke for priority stack SSoT.
 ;;
 ;; Does NOT run full pipeline or deploy. Verifies:
@@ -8,7 +8,7 @@
 ;;   (4) data/itonami-offline-ss-readiness.edn layer :priority-stack-ssot
 ;;
 ;; Usage (from actor-fuchi root):
-;;   nbb -cp . methods/readiness_check.cljk
+;;   kbb --backend sci -cp . methods/readiness_check.cljk
 ;;
 ;; cash≡0 · live refuse · no scores · ADR-2607173000 nbb only.
 (require '[kotoba.lang.text :as str])

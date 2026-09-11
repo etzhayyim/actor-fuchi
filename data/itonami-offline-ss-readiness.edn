@@ -170,16 +170,16 @@
 
  :readiness/land
  {:script "methods/_land_ss_gated_wip.cljk"
-  :invoke "nbb methods/_land_ss_gated_wip.cljk"
+  :invoke "kbb --backend sci methods/_land_ss_gated_wip.cljk"
   :host "nbb only (ADR-2607173000; no bash land / no .sh entrypoints)"
   :retired-paths ["methods/_land_ss_gated_wip.sh"
                   "run_tests.sh"
                   "methods/publish.bb"]
-  :steps ["nbb methods/_land_ss_gated_wip.cljk"
-          "nbb -cp . methods/readiness_check.cljk (design+static+readiness layer)"
-          "nbb -cp . methods/priority_stack_smoke.cljk (L0+disclosure+held-stress+all-seven)"
-          "nbb -cp . run_tests.cljs.cljk (invoked by land; nbb in-process suite, no bb spawn)"
-          "nbb -cp . methods/write_all.cljk (scorecard+audit+surplus+public; + assert ps edn)"
+  :steps ["kbb --backend sci methods/_land_ss_gated_wip.cljk"
+          "kbb --backend sci -cp . methods/readiness_check.cljk (design+static+readiness layer)"
+          "kbb --backend sci -cp . methods/priority_stack_smoke.cljk (L0+disclosure+held-stress+all-seven)"
+          "kbb --backend sci -cp . run_tests.cljs.cljk (invoked by land; nbb in-process suite, no bb spawn)"
+          "kbb --backend sci -cp . methods/write_all.cljk (scorecard+audit+surplus+public; + assert ps edn)"
           "commit methods/ public/ data/ out/ docs README.md MATURITY.md CLAUDE.md"
           "git rm obsolete .sh/.bb/init.clj entrypoints if still tracked"
           "push etzhayyim|origin main (ff-only, no force)"

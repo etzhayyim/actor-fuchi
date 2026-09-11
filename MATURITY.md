@@ -16,7 +16,7 @@
 
 ## R0 + R1 a/b/c/d + R1 live-but-gated evidence
 
-- **Tests green via `nbb -cp . run_tests.cljs.cljk`** (nbb in-process / ADR-2607173000; no bash, no bb
+- **Tests green via `kbb --backend sci -cp . run_tests.cljs.cljk`** (nbb in-process / ADR-2607173000; no bash, no bb
   spawn): allocate/route/provision/vote/book/couple + live_gate + analyze +
   charter-invariants + lexicons + cells + offline SS path suites (L0 enroll, disclosure, all-seven
   rails, displacement pipeline, pages publish/deploy).
@@ -81,11 +81,11 @@ README with last-run status lines).
   package writers, pipeline, scorecard, surplus ledger, all-seven design-edn, and offline path
   tests (pipeline/scorecard/disclosure/ss/itonami/public-person/audit).
   SSoT: `methods/priority_stack.cljk` (`run-offline` = (1)L0 (2)disclosure (3)mitsuho).
-  Fast check: `nbb -cp . methods/readiness_check.cljk`.
-  Smoke: `nbb -cp . methods/priority_stack_smoke.cljk`. Land: `nbb methods/_land_ss_gated_wip.cljk`
-  (prefers `write-all!`). Publish: `nbb methods/publish.cljk` (no `.sh` / `.bb` entrypoints).
+  Fast check: `kbb --backend sci -cp . methods/readiness_check.cljk`.
+  Smoke: `kbb --backend sci -cp . methods/priority_stack_smoke.cljk`. Land: `kbb --backend sci methods/_land_ss_gated_wip.cljk`
+  (prefers `write-all!`). Publish: `kbb --backend sci methods/publish.cljk` (no `.sh` / `.bb` entrypoints).
   **Landing** may still be blocked when agent terminal spawn fails —
-  use `nbb methods/_land_ss_gated_wip.cljk` when terminal works.
+  use `kbb --backend sci methods/_land_ss_gated_wip.cljk` when terminal works.
 - No live disbursement / provisioning / land grant / binding vote — all G10 (Council Lv6+ +
   operator; invariant-adjacent Lv7+). The R1 a/b/c engines are built + tested **offline**; flipping
   them to live is the gated R1-live phase.

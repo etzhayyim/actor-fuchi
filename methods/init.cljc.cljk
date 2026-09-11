@@ -1,7 +1,7 @@
 (ns fuchi.methods.init
   "No-op init ns (portable). Prefer nbb entrypoints:
-   nbb -cp . methods/readiness_check.cljk
-   nbb -cp . methods/priority_stack_smoke.cljk
-   nbb -cp . methods/write_all.cljk
-   nbb methods/_land_ss_gated_wip.cljk
+   kbb --backend sci -cp . methods/readiness_check.cljk
+   kbb --backend sci -cp . methods/priority_stack_smoke.cljk
+   kbb --backend sci -cp . methods/write_all.cljk
+   kbb --backend sci methods/_land_ss_gated_wip.cljk
    ADR-2607173000: script host is nbb only.")

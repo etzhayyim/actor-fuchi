@@ -1,7 +1,7 @@
 ;; fuchi — dual layout classpath
 ;; - Local / agent WIP: methods/ at repo root (+ self-symlink fuchi/ → .)
 ;; - GitHub main tip: src/fuchi/methods/ (ns still fuchi.methods.*)
-;; nbb: nbb -cp . methods/… or nbb -cp '.:src' …
+;; nbb: kbb --backend sci -cp . methods/… or kbb --backend sci -cp '.:src' …
 {:paths ["src" "."]
  :deps {
         ;; kotoba.lang.text, not clojure.string. Pinned as an explicit floor:

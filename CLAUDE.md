@@ -37,7 +37,7 @@ public-person?(p,t) ≔ covenant?(p,t) ∧ receives-ss?(p,t) ∧ ¬exit-suspende
   `data/rail-design-catalog.edn` — order care→housing→food→energy→tooling→
   compute→liquidity; live-produce never; loan/land-grant never. Scorecard keys
   `:scorecard/rail-*-design` + `:scorecard/rail-design-catalog`; public report
-  mirrors. Land when terminal works: `nbb methods/_land_ss_gated_wip.cljk`.
+  mirrors. Land when terminal works: `kbb --backend sci methods/_land_ss_gated_wip.cljk`.
 - Displacement→L0 (`methods/displacement_l0_path.cljk`): funded itonami surplus →
   L0 enroll → L4 multi-gen (care/housing first) + vocation rails R1→gated refuse;
   default embeds held-stress per subject (ladder refuse when disclosure stale).
@@ -82,14 +82,14 @@ public-person?(p,t) ≔ covenant?(p,t) ∧ receives-ss?(p,t) ∧ ¬exit-suspende
   — do not invent a second tenure formula.
 - New in-kind needs → add an `:envelope/line` + a rail in `LINE_TO_RAIL`, mapped to a **producing
   actor** (mitsuho/hikari/okaimono/iyashi/commons-land/warifu). Never add a rail that pays cash.
-- Keep tests green: `nbb -cp . run_tests.cljs.cljk` (nbb in-process; ADR-2607173000; no bash / no bb).
+- Keep tests green: `kbb --backend sci -cp . run_tests.cljs.cljk` (nbb in-process; ADR-2607173000; no bash / no bb).
   Readiness / priority stack SSoT:
-  `nbb -cp . methods/readiness_check.cljk` then
-  `nbb -cp . methods/priority_stack_smoke.cljk` (L0 + disclosure + mitsuho R1→gated).
+  `kbb --backend sci -cp . methods/readiness_check.cljk` then
+  `kbb --backend sci -cp . methods/priority_stack_smoke.cljk` (L0 + disclosure + mitsuho R1→gated).
   Regenerate full offline package (portable under nbb):
-  `nbb -cp . methods/write_all.cljk`
+  `kbb --backend sci -cp . methods/write_all.cljk`
   (or `write-all!` via `fuchi.methods.displacement-pipeline` / pages-deploy package).
-  Publish host: `nbb methods/publish.cljk`. Land: `nbb methods/_land_ss_gated_wip.cljk`.
+  Publish host: `kbb --backend sci methods/publish.cljk`. Land: `kbb --backend sci methods/_land_ss_gated_wip.cljk`.
   The `test_charter_invariants.cljc` suite parses the
   ontology + lexicons + code and will fail if an invariant drifts out of any of the three places —
   including the R1-live locks (every leg refused by default; `couple` is Lv7).
