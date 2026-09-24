@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-pages-publish
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])
             #?(:clj [fuchi.methods.pages-publish :as pages])))

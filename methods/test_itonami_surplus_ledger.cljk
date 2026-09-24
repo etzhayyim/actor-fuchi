@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-itonami-surplus-ledger
   "itonami surplus ledger tests — portable under bb and nbb."
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.itonami-surplus-ledger :as led]
             [fuchi.methods.public-person :as pp]
             [fuchi.methods.edn :as edn]))

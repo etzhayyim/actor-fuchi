@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-itonami-surplus-ledger
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.itonami-surplus-ledger :as led]
             [fuchi.methods.public-person :as pp]
             #?(:clj [clojure.java.io :as io])

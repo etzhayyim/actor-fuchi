@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-public-surface-report
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [kotoba.lang.text :as str]
             [fuchi.methods.public-surface-report :as rep]
             [fuchi.methods.public-person :as pp]

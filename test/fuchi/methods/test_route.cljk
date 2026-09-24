@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-route
   "Tests for 扶持 (fuchi) route.cljc — 1:1 port of methods/test_route.py (clojure.test)."
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.route :as r]))
 
 (defn- env

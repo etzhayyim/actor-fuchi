@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-disclosure-hold
   "Disclosure hold state machine tests (ADR-2607177000)."
-  (:require [kotoba.lang.text] [clojure.test :refer [deftest is]]
+  (:require [kotoba.lang.text] [kotoba.test :refer [deftest is]]
             [fuchi.methods.disclosure-hold :as dh]
             [fuchi.methods.public-person :as pp]
             #?(:clj [clojure.java.io :as io])

@@ -1,7 +1,7 @@
 (require '[clojure.edn :as edn]
          '[clojure.java.io :as io]
          '[kotoba.lang.text :as str]
-         '[clojure.test :as t])
+         '[kotoba.test :as t])
 
 (def contracts (edn/read-string (slurp "repository-contracts.edn")))
 (doseq [path (:required contracts)]

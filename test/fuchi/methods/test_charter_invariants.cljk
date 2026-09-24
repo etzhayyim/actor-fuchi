@@ -30,7 +30,7 @@
     than faked green. The other two G10 tests (couple-is-Lv7, live-mode-holds-cash≡0/no-key)
     port cleanly and pass. The Python `_run` demo printer is omitted (clojure.test provides the
     runner)."
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])
             [fuchi.methods.edn :as edn]

@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-compute-murakumo-receive
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.compute-murakumo-receive :as cr]
             [fuchi.methods.rail-compute-murakumo :as m]
             [fuchi.methods.live-gate :as live-gate]

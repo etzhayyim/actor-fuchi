@@ -14,7 +14,7 @@
   cash≡0 / no-server-key / timelock / G2 structural invariants, gated-OK paths) port cleanly.
 
   The Python '__main__'/_run demo is omitted (clojure.test provides the runner)."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [fuchi.methods.live-gate :as live-gate]
             [fuchi.methods.provision :as prov]
             [fuchi.methods.vote :as vote-mod]

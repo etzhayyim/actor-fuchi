@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-r2-execute
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.r2-execute :as r2]
             [fuchi.methods.rail-mitsuho :as m]
             [fuchi.methods.mitsuho-produce-plan :as mp]

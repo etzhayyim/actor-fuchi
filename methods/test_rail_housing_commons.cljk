@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-rail-housing-commons
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [kotoba.lang.text :as str]
             [fuchi.methods.rail-housing-commons :as h]
             [fuchi.methods.live-gate :as live-gate]
