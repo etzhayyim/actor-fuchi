@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-liquidity-warifu-receive
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.liquidity-warifu-receive :as wr]
             [fuchi.methods.rail-liquidity-warifu :as w]
             [fuchi.methods.live-gate :as live-gate]

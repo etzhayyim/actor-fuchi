@@ -1,5 +1,5 @@
 (ns fuchi.methods.social-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [fuchi.methods.social :as social]))
 
 (deftest dry-run-publication-is-non-adjudicating

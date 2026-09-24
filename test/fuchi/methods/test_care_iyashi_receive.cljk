@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-care-iyashi-receive
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.care-iyashi-receive :as cr]
             [fuchi.methods.rail-care-iyashi :as c]
             [fuchi.methods.live-gate :as live-gate]

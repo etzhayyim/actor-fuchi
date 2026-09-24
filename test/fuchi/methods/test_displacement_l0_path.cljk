@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-displacement-l0-path
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.displacement-l0-path :as d]
             [fuchi.methods.couple :as couple]
             [fuchi.methods.public-person :as pp]

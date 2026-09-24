@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-couple
   "Tests for 扶持 (fuchi) couple.cljc — 1:1 port of methods/test_couple.py (clojure.test)."
-  (:require [kotoba.lang.text] [clojure.test :refer [deftest is]]
+  (:require [kotoba.lang.text] [kotoba.test :refer [deftest is]]
             [fuchi.methods.couple :as c]))
 
 (defn- event [& {:as over}]

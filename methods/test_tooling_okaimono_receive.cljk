@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-tooling-okaimono-receive
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.tooling-okaimono-receive :as tr]
             [fuchi.methods.rail-tooling-okaimono :as t]
             [fuchi.methods.live-gate :as live-gate]

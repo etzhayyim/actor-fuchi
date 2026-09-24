@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-public-person
   "Tests for as-of public-person derivation (ADR-2607177000)."
-  (:require [kotoba.lang.text] [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.lang.text] [kotoba.test :refer [deftest is testing]]
             [clojure.set :as set]
             [fuchi.methods.public-person :as pp]
             [fuchi.methods.allocate :as allocate]

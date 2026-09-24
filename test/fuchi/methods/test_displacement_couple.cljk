@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-displacement-couple
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.displacement-couple :as dc]
             [fuchi.methods.couple :as couple]
             [fuchi.methods.public-person :as pp]))

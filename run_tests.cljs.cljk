@@ -6,7 +6,7 @@
 ;;
 ;; Pure nbb suite: requires + clojure.test/run-tests in-process (no bb spawn).
 ;; Prefer kbb --backend sci -cp . methods/priority_stack_smoke.cljk for pure (1)(2)(3) smoke.
-(require '[clojure.test :as t])
+(require '[kotoba.test :as t])
 
 (def fs (js/require "node:fs"))
 (def path (js/require "node:path"))

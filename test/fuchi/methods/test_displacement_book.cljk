@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-displacement-book
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.displacement-book :as db]
             [fuchi.methods.stage-sustenance :as st]
             [fuchi.methods.disclosure-hold :as dh]

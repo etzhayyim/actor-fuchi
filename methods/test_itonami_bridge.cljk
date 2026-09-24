@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-itonami-bridge
   "itonami bridge tests — portable under bb and nbb."
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.itonami-bridge :as b]
             [fuchi.methods.public-person :as pp]
             [fuchi.methods.edn :as edn]))

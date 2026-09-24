@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-ss-offline-path
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.ss-offline-path :as path]
             [fuchi.methods.public-person :as pp]
             ))

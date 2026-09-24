@@ -7,7 +7,7 @@
   STRINGS, byte-for-byte the Python `load_edn` shape). File I/O at the #?(:clj) edge.
 
   Run from 20-actors (the bb source root)."
-  (:require [clojure.test :refer [deftest is run-tests]]
+  (:require [kotoba.test :refer [deftest is run-tests]]
             [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])
             [fuchi.methods.edn :as edn]))

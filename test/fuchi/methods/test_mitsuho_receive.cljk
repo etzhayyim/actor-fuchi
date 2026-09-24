@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-mitsuho-receive
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.mitsuho-receive :as mr]
             [fuchi.methods.rail-mitsuho :as m]
             [fuchi.methods.live-gate :as live-gate]

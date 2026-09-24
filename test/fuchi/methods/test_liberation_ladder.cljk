@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-liberation-ladder
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.liberation-ladder :as lad]
             [fuchi.methods.disclosure-hold :as dh]
             [fuchi.methods.public-person :as pp]))

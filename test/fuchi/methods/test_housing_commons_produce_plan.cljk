@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-housing-commons-produce-plan
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.housing-commons-produce-plan :as hp]
             [fuchi.methods.rail-housing-commons :as h]
             [fuchi.methods.live-gate :as live-gate]

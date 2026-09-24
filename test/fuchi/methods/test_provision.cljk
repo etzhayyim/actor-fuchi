@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-provision
   "Tests for 扶持 (fuchi) provision.cljc — 1:1 port of methods/test_provision.py (clojure.test)."
-  (:require [kotoba.lang.text] [clojure.test :refer [deftest is]]
+  (:require [kotoba.lang.text] [kotoba.test :refer [deftest is]]
             [fuchi.methods.provision :as p]
             [fuchi.methods.route :as route]))
 

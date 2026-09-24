@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-displacement-tenure
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.displacement-tenure :as ten]
             [fuchi.methods.displacement-l0-path :as d]
             [fuchi.methods.displacement-gov :as g]

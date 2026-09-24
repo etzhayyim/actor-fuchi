@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-rail-tooling-okaimono
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.rail-tooling-okaimono :as t]
             [fuchi.methods.live-gate :as live-gate]
             [fuchi.methods.disclosure-hold :as dh]

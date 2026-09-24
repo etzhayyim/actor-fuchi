@@ -1,5 +1,5 @@
 (ns fuchi.methods.test-rail-hikari
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [kotoba.lang.text :as str]
             [fuchi.methods.rail-hikari :as h]
             [fuchi.methods.live-gate :as live-gate]

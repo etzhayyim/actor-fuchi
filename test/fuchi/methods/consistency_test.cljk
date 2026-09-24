@@ -7,7 +7,7 @@
   lookup is permitted.
 
   The Python `_run` demo printer is omitted (clojure.test provides the runner)."
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [clojure.edn]
             [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])

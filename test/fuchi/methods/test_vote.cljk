@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-vote
   "Tests for 扶持 (fuchi) vote.cljc — 1:1 port of methods/test_vote.py (clojure.test)."
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.vote :as v]))
 
 (defn- B [did choice cast-at] (v/make-ballot {:voter-did did :choice choice :cast-at cast-at}))
