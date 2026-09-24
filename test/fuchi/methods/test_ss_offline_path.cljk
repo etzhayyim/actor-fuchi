@@ -2,7 +2,7 @@
   (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.ss-offline-path :as path]
             [fuchi.methods.public-person :as pp]
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 (deftest test-food-energy-offline-path
   (let [out (path/run-food-path

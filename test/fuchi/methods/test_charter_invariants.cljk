@@ -32,7 +32,7 @@
     runner)."
   (:require [kotoba.test :refer [deftest is]]
             [kotoba.lang.text :as str]
-            #?(:clj [clojure.java.io :as io])
+            #?(:clj [kotoba.io :as io])
             [fuchi.methods.edn :as edn]
             [fuchi.methods.allocate :as allocate]
             [fuchi.methods.book :as book]

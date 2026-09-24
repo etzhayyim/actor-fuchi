@@ -16,7 +16,7 @@
             [fuchi.methods.public-person :as pp]
             [fuchi.methods.disclosure-hold :as dh]
             #?(:clj [fuchi.methods.edn :as edn])
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 (def RAIL-KIND "food-mitsuho")
 (def PROVIDER-DID "did:web:etzhayyim.com:actor:mitsuho")

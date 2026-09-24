@@ -40,7 +40,7 @@
             [fuchi.methods.r2-execute :as r2]
             [fuchi.methods.itonami-bridge :as itonami]
             #?(:clj [fuchi.methods.edn :as edn])
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 (def PRIORITY-STACK pp/PRIORITY-STACK)
 

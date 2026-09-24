@@ -3,7 +3,7 @@
             [fuchi.methods.displacement-l0-path :as d]
             [fuchi.methods.couple :as couple]
             [fuchi.methods.public-person :as pp]
-            #?(:clj [clojure.java.io :as io])
+            #?(:clj [kotoba.io :as io])
             #?(:clj [fuchi.methods.edn :as edn])))
 
 (deftest test-funded-event-enrolls

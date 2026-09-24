@@ -12,7 +12,7 @@
   The Python `_run` demo printer is omitted (clojure.test provides the runner)."
   (:require [kotoba.test :refer [deftest is]]
             [kotoba.lang.edn :as canonical-edn]
-            [clojure.set]
+            [kotoba.lang.coll]
             [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])
             [fuchi.methods.edn :as edn]))
@@ -117,8 +117,8 @@
            files (set (->> (.listFiles (io/file actor-dir "lex"))
                            (filter #(str/ends-with? (.getName %) ".edn"))
                            (map #(get (edn/load-edn %) ":id"))))]
-       (is (clojure.set/subset? declared files)
-           (str "manifest declarations missing from files: " (clojure.set/difference declared files))))))
+       (is (kotoba.lang.coll/subset? declared files)
+           (str "manifest declarations missing from files: " (kotoba.lang.coll/difference declared files))))))
 
 (deftest test-manifest-adr-matches-ontology
   #?(:clj

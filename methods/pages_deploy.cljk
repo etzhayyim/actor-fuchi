@@ -12,7 +12,7 @@
             [fuchi.methods.pages-publish :as pages]
             [fuchi.methods.pipeline-audit-ledger :as audit]
             [fuchi.methods.edn :as edn]
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 (def PRIORITY-STACK pp/PRIORITY-STACK)
 (def FLAG "FUCHI_ALLOW_PAGES_DEPLOY")

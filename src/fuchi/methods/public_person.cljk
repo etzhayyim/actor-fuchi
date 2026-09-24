@@ -12,7 +12,7 @@
 
   Portable .cljc; pure fns; no I/O."
   (:require [kotoba.lang.text :as str]
-            [clojure.set :as set]))
+            [kotoba.lang.coll :as set]))
 
 (def PRIORITY-STACK
   [:wellbecoming :mago-wellbecoming :ko-wellbecoming :present-adherent :operational])

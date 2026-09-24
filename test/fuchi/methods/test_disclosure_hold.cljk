@@ -3,7 +3,7 @@
   (:require [kotoba.lang.text] [kotoba.test :refer [deftest is]]
             [fuchi.methods.disclosure-hold :as dh]
             [fuchi.methods.public-person :as pp]
-            #?(:clj [clojure.java.io :as io])
+            #?(:clj [kotoba.io :as io])
             #?(:clj [fuchi.methods.edn :as edn])))
 
 (def ^:private fresh
