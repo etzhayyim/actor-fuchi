@@ -12,7 +12,7 @@
   routing-policy file read is at the #?(:clj) edge. Portable .cljc."
   (:require [kotoba.lang.text :as str]
             [fuchi.methods.live-gate :as live-gate]
-            #?(:clj [clojure.edn :as edn])
+            #?(:clj [kotoba.lang.edn :as edn])
             #?(:clj [clojure.java.io :as io])))
 
 ;; rail kind → [provider-id provider-kind short-label]. Mirrors route/LINE-TO-RAIL.

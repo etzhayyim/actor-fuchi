@@ -11,7 +11,7 @@
 
   The Python `_run` demo printer is omitted (clojure.test provides the runner)."
   (:require [kotoba.test :refer [deftest is]]
-            [clojure.edn :as canonical-edn]
+            [kotoba.lang.edn :as canonical-edn]
             [clojure.set]
             [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])
