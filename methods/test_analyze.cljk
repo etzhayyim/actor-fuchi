@@ -3,7 +3,7 @@
   Portable under nbb and bb (ADR-2607173000)."
   (:require [kotoba.test :refer [deftest is]]
             [kotoba.lang.text :as str]
-            [clojure.set]
+            [kotoba.lang.coll]
             [fuchi.methods.edn :as edn]
             [fuchi.methods.analyze :as analyze]
             [fuchi.methods.public-person :as public-person]))
@@ -93,7 +93,7 @@
     (is (seq (:ledger res)) "expected toritate ledger entries (R1c)")
     (doseq [e (:ledger res)] (is (= (:cash-usd-micros e) 0)))
     (let [cats (set (map :category (:ledger res)))]
-      (is (clojure.set/subset? cats #{"subsistence-flow" "vocation-flow" "care-flow" "liberation-flow" "grant"})))))
+      (is (kotoba.lang.coll/subset? cats #{"subsistence-flow" "vocation-flow" "care-flow" "liberation-flow" "grant"})))))
 
 (deftest test-flow-graph-has-publicfund-source
   (is (some #(= (:flow-class %) "publicfund-to-fuchi") (:flows (run*)))))

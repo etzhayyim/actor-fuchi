@@ -11,7 +11,7 @@
             [fuchi.methods.live-gate :as live-gate]
             [fuchi.methods.public-person :as pp]
             #?(:clj [fuchi.methods.edn :as edn])
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 (def RAIL-KIND "energy-hikari")
 (def PROVIDER-DID "did:web:etzhayyim.com:actor:hikari")

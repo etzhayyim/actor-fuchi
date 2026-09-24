@@ -9,7 +9,7 @@
             [fuchi.methods.displacement-surface :as disp]
             [fuchi.methods.public-person :as pp]
             #?(:clj [fuchi.methods.edn :as edn])
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 (def PRIORITY-STACK pp/PRIORITY-STACK)
 

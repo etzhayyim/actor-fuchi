@@ -7,7 +7,7 @@
             [fuchi.methods.itonami-bridge :as ib]
             [fuchi.methods.public-person :as pp]
             #?(:clj [fuchi.methods.edn :as edn])
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 (deftest test-tenure-climb-l4-to-l6
   (let [ev (couple/make-displacement-event
