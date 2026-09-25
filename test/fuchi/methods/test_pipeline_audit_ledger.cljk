@@ -3,7 +3,7 @@
             [fuchi.methods.pipeline-audit-ledger :as audit]
             [fuchi.methods.public-person :as pp]
             #?(:clj [fuchi.methods.displacement-pipeline :as pipe])
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 (deftest test-event-from-pipeline-shape
   (let [fake {:pipeline "displacement-ss-offline"
@@ -93,7 +93,7 @@
            events (audit/read-all)
            sum (audit/summary)
            last-ev (last events)]
-       (is (.exists (io/file (:path a))))
+       (is (io/exists? (io/file (:path a))))
        (is (seq events))
        (is (pos? (:runs sum)))
        (is (true? (:all-runs-live-refused sum)))

@@ -12,7 +12,7 @@
    :covenant "outreach"})
 
 (deftest test-draft-requires-signature
-  (is (thrown? #?(:clj clojure.lang.ExceptionInfo :cljs js/Error)
+  (is (thrown? js/Error
                (l0/draft-vow (dissoc base :member-signature)))))
 
 (deftest test-triple-permanent-offline
@@ -49,5 +49,5 @@
     (is (= "L0" (:stage rec)))))
 
 (deftest test-cash-invariant
-  (is (thrown? #?(:clj clojure.lang.ExceptionInfo :cljs js/Error)
+  (is (thrown? js/Error
                (l0/assert-no-cash! {:cash-usd-micros 1}))))

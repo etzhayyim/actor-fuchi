@@ -2,7 +2,7 @@
   (:require [kotoba.test :refer [deftest is]]
             [kotoba.lang.text :as str]
             #?(:clj [fuchi.methods.displacement-pipeline :as pipe])
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 #?(:clj
    (deftest test-run-pipeline
@@ -79,13 +79,13 @@
 #?(:clj
    (deftest test-write-all
      (let [out (pipe/write-all! :max-slots 1 :include-public false)]
-       (is (.exists (io/file (get-in out [:paths :md]))))
+       (is (io/exists? (io/file (get-in out [:paths :md]))))
        (is (false? (:deployed out)))
        (is (false? (:live out)))
        (is (false? (:package-ready out)))
        (is (nil? (:public-package out)))
        (is (map? (:audit out)))
-       (is (.exists (io/file (get-in out [:audit :path]))))
+       (is (io/exists? (io/file (get-in out [:audit :path]))))
        (is (true? (get-in out [:audit :event :audit/all-live-refused])))
        (is (zero? (get-in out [:audit :event :audit/housing-land-grant-executed] 0)))
        (is (pos? (get-in out [:audit :event :audit/gov-post-ratify-committed-usd-micros] 0))))))
@@ -106,10 +106,10 @@
        (is (false? (:authorized-to-deploy st)))
        (is (zero? (:housing-land-grant-executed out)))
        (is (pos? (:gov-post-ratify-committed-usd-micros out)))
-       (is (.exists (io/file (:index pkg))))
-       (is (.exists (io/file (:wrangler pkg))))
+       (is (io/exists? (io/file (:index pkg))))
+       (is (io/exists? (io/file (:wrangler pkg))))
        (when-let [rb (:deploy-runbook pkg)]
-         (is (.exists (io/file rb))))
+         (is (io/exists? (io/file rb))))
        (let [html (slurp (:index pkg))]
          (is (str/includes? html "public surface"))
          (is (str/includes? html "plan-only"))

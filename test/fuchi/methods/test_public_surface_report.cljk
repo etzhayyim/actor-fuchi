@@ -3,7 +3,7 @@
             [kotoba.lang.text :as str]
             [fuchi.methods.public-surface-report :as rep]
             [fuchi.methods.public-person :as pp]
-            #?(:clj [clojure.java.io :as io])
+            #?(:clj [kotoba.io :as io])
             #?(:clj [fuchi.methods.edn :as edn])))
 
 #?(:clj
@@ -74,9 +74,9 @@
 #?(:clj
    (deftest test-write-report
      (let [paths (rep/write-report!)]
-       (is (.exists (io/file (:md paths))))
-       (is (.exists (io/file (:edn paths))))
-       (is (.exists (io/file (:html paths))))
+       (is (io/exists? (io/file (:md paths))))
+       (is (io/exists? (io/file (:edn paths))))
+       (is (io/exists? (io/file (:html paths))))
        (is (str/includes? (slurp (:md paths)) "facts only"))
        (is (str/includes? (slurp (:html paths)) "Displacement"))
        (is (not (re-find #"(?i)\| *rank *\|" (slurp (:html paths))))))))

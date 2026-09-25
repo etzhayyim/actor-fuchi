@@ -31,7 +31,7 @@
             [fuchi.methods.ss-offline-path :as ss-path]
             #?(:clj [fuchi.methods.pipeline-audit-ledger :as audit])
             #?(:clj [fuchi.methods.edn :as edn])
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 (def PRIORITY-STACK pp/PRIORITY-STACK)
 
@@ -1359,7 +1359,7 @@
                       (io/file "."))
             seed (edn/load-edn (io/file actor "data" "seed-sustenance-graph.kotoba.edn"))
             outd (io/file actor "out")]
-        (.mkdirs outd)
+        (io/mkdirs outd)
         (spit (io/file outd "public-surface.md")
               (report-md seed :include-l0-demo true :include-itonami true))
         (spit (io/file outd "public-surface.edn")

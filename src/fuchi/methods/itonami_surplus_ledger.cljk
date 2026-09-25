@@ -10,7 +10,7 @@
   (:require [fuchi.methods.itonami-bridge :as bridge]
             [fuchi.methods.public-person :as pp]
             #?(:clj [fuchi.methods.edn :as edn])
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 (def PRIORITY-STACK pp/PRIORITY-STACK)
 
@@ -78,7 +78,7 @@
                   :ledger/summary summary
                   :ledger/entries entries}
             outd (io/file actor "out")]
-        (.mkdirs outd)
+        (io/mkdirs outd)
         (doseq [e entries] (pp/assert-no-public-scores! e))
         (spit (io/file outd "itonami-surplus-ledger.edn") (pr-str body))
         {:path (str (io/file outd "itonami-surplus-ledger.edn"))

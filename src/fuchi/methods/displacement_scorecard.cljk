@@ -14,7 +14,7 @@
             [fuchi.methods.itonami-surplus-ledger :as led]
             [fuchi.methods.ss-offline-path :as ss-path]
             #?(:clj [fuchi.methods.edn :as edn])
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 (def PRIORITY-STACK pp/PRIORITY-STACK)
 
@@ -674,7 +674,7 @@
                       (io/file "."))
             body (build)
             outd (io/file actor "out")]
-        (.mkdirs outd)
+        (io/mkdirs outd)
         (spit (io/file outd "displacement-scorecard.md") (scorecard-md body))
         (spit (io/file outd "displacement-scorecard.edn") (pr-str body))
         {:md (str (io/file outd "displacement-scorecard.md"))

@@ -15,7 +15,7 @@
             [fuchi.methods.pages-deploy :as pages-dep]
             [fuchi.methods.itonami-surplus-ledger :as surplus]
             [fuchi.methods.edn :as edn]
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 (def PRIORITY-STACK pp/PRIORITY-STACK)
 
@@ -33,7 +33,7 @@
      :cljs (.apply (.-join path) path (to-array parts))))
 
 (defn- ensure-dir! [dir]
-  #?(:clj (.mkdirs (io/file dir))
+  #?(:clj (io/mkdirs (io/file dir))
      :cljs (when-not (.existsSync fs dir)
              (.mkdirSync fs dir #js {:recursive true}))))
 

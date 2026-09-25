@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-book
   "Tests for 扶持 (fuchi) book.cljc — 1:1 port of methods/test_book.py (clojure.test)."
-  (:require [kotoba.test :refer [deftest is]]
+  (:require [kotoba.lang.error :as kerror] [kotoba.test :refer [deftest is]]
             [fuchi.methods.book :as book]
             [fuchi.methods.provision :as prov]
             [fuchi.methods.route :as route]))
@@ -28,12 +28,12 @@
 
 (deftest test-payroll-category-is-unrepresentable
   (doseq [bad ["payroll" "salary" "wage" "bonus"]]
-    (is (thrown? clojure.lang.ExceptionInfo
+    (is (thrown? kerror/ExceptionInfo
                  (book/make-ledger-entry {:alloc-id "a" :category bad :imputed-usd-micros-yr 1
                                           :counterparty-did "did:m:x"})))))
 
 (deftest test-nonzero-cash-ledger-refused
-  (is (thrown-with-msg? clojure.lang.ExceptionInfo #"(?i)cash"
+  (is (thrown-with-msg? kerror/ExceptionInfo #"(?i)cash"
                         (book/make-ledger-entry {:alloc-id "a" :category "subsistence-flow"
                                                  :imputed-usd-micros-yr 1 :counterparty-did "did:m:x"
                                                  :cash-usd-micros 5}))))
