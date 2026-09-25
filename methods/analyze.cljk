@@ -97,7 +97,7 @@
               cov (kw* (get r ":maintainer/covenant" ":vowed"))
               env (envelopes-for seed did)
               rails-or-err (try {:rails (route/route-envelope env)}
-                                (catch #?(:clj clojure.lang.ExceptionInfo :cljs :default) exc
+                                (catch :default exc
                                   {:err (#?(:clj #(.getMessage %) :cljs ex-message) exc)}))]
           (if (:err rails-or-err)
             (recur (rest rs) as-of

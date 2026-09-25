@@ -69,7 +69,7 @@
   (let [pkg (m/r1-dry-package {:alloc-id "a" :imputed-usd-micros-yr 1
                                :person (person fresh-d)})
         gate (live-gate/make-live-gate {:leg "provision"})]
-    (is (thrown? #?(:clj clojure.lang.ExceptionInfo :cljs js/Error)
+    (is (thrown? js/Error
                  (m/gated-live-plan pkg gate :env {})))))
 
 (deftest test-gated-live-plan-authorizes-with-full-capability

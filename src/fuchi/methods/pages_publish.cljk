@@ -9,7 +9,7 @@
             [fuchi.methods.displacement-scorecard :as dsc]
             [fuchi.methods.pipeline-audit-ledger :as audit]
             #?(:clj [fuchi.methods.edn :as edn])
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 (def PRIORITY-STACK pp/PRIORITY-STACK)
 
@@ -29,8 +29,8 @@
             audit-sum (try (audit/summary) (catch Exception _ {:runs 0}))
             pub (io/file actor "public")
             outd (io/file actor "out")]
-        (.mkdirs pub)
-        (.mkdirs outd)
+        (io/mkdirs pub)
+        (io/mkdirs outd)
         ;; assert no scores in body
         (doseq [f (:report/public-persons edn-body)]
           (pp/assert-no-public-scores! f))

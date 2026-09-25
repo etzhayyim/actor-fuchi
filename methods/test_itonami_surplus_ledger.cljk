@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-itonami-surplus-ledger
   "itonami surplus ledger tests — portable under bb and nbb."
-  (:require [kotoba.test :refer [deftest is]]
+  (:require [kotoba.io :as kio] [kotoba.test :refer [deftest is]]
             [fuchi.methods.itonami-surplus-ledger :as led]
             [fuchi.methods.public-person :as pp]
             [fuchi.methods.edn :as edn]))
@@ -9,7 +9,7 @@
    (def ^:private fs (js/require "node:fs")))
 
 (defn- path-exists? [p]
-  #?(:clj (.exists (java.io.File. (str p)))
+  #?(:clj (kio/exists? (kio/file (str p)))
      :cljs (.existsSync fs (str p))))
 
 (deftest test-build-ledger-g2

@@ -10,7 +10,7 @@
   (:require [fuchi.methods.itonami-bridge :as bridge]
             [fuchi.methods.public-person :as pp]
             [fuchi.methods.edn :as edn]
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 #?(:cljs
    (do
@@ -73,7 +73,7 @@
      :cljs (.apply (.-join path) path (to-array parts))))
 
 (defn- ensure-dir! [dir]
-  #?(:clj (.mkdirs (io/file dir))
+  #?(:clj (io/mkdirs (io/file dir))
      :cljs (when-not (.existsSync fs dir)
              (.mkdirSync fs dir #js {:recursive true}))))
 

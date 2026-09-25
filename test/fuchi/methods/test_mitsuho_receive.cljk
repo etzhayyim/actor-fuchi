@@ -26,7 +26,7 @@
     (pp/assert-no-public-scores! ack)))
 
 (deftest test-rejects-non-food
-  (is (thrown? #?(:clj clojure.lang.ExceptionInfo :cljs js/Error)
+  (is (thrown? js/Error
                (mr/dry-receive {:rail-kind "energy-hikari"
                                 :provider-did "did:web:etzhayyim.com:actor:hikari"
                                 :cash-usd-micros 0 :server-held-key false

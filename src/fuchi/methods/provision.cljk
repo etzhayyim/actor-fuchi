@@ -13,7 +13,7 @@
   (:require [kotoba.lang.text :as str]
             [fuchi.methods.live-gate :as live-gate]
             #?(:clj [kotoba.lang.edn :as edn])
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 ;; rail kind → [provider-id provider-kind short-label]. Mirrors route/LINE-TO-RAIL.
 (def PROVIDER-REGISTRY
@@ -61,7 +61,7 @@
      (try
        (let [f (io/file (or (System/getenv "ABAKI_POLICY_PATH")
                             "../com-etzhayyim-abaki/out/routing-policy.edn"))]
-         (if (.exists f)
+         (if (io/exists? f)
            (->> (get (edn/read-string (slurp f)) "blocked_entities" [])
                 (keep #(get % "id")) set)
            #{}))

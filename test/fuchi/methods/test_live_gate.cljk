@@ -14,7 +14,7 @@
   cash≡0 / no-server-key / timelock / G2 structural invariants, gated-OK paths) port cleanly.
 
   The Python '__main__'/_run demo is omitted (clojure.test provides the runner)."
-  (:require [kotoba.test :refer [deftest is testing]]
+  (:require [kotoba.lang.error :as kerror] [kotoba.test :refer [deftest is testing]]
             [fuchi.methods.live-gate :as live-gate]
             [fuchi.methods.provision :as prov]
             [fuchi.methods.vote :as vote-mod]
@@ -44,7 +44,7 @@
 
 ;; ── construction ────────────────────────────────────────────────────────────
 (deftest test-unknown-leg-rejected
-  (is (thrown? clojure.lang.ExceptionInfo
+  (is (thrown? kerror/ExceptionInfo
                (live-gate/make-live-gate {:leg "bogus"}))))
 
 (deftest test-all-four-legs-known
@@ -61,33 +61,33 @@
   (doseq [leg (keys live-gate/LEG-POLICY)]
     (let [st (gate-status (live-gate/make-live-gate {:leg leg}) {})]
       (is (false? (get st "admissible")))
-      (is (thrown? clojure.lang.ExceptionInfo
+      (is (thrown? kerror/ExceptionInfo
                    (require-g (live-gate/make-live-gate {:leg leg}) {}))))))
 
 (deftest test-missing-operator-flag-refused
   (doseq [leg (keys live-gate/LEG-POLICY)]
     (let [g (full-gate leg)]
-      (is (thrown-with-msg? clojure.lang.ExceptionInfo #"operator process flag"
+      (is (thrown-with-msg? kerror/ExceptionInfo #"operator process flag"
                             (require-g g {}))))))
 
 (deftest test-missing-attestation-refused
   (let [leg "provision"
         g (live-gate/make-live-gate
            {:leg leg :operator-did "" :council-level 6 :member-signature "sig:x"})]
-    (is (thrown-with-msg? clojure.lang.ExceptionInfo #"operator attestation"
+    (is (thrown-with-msg? kerror/ExceptionInfo #"operator attestation"
                           (require-g g (env leg))))))
 
 (deftest test-insufficient-council-refused
   (let [leg "couple"  ;; needs Lv7
         g (live-gate/make-live-gate
            {:leg leg :operator-did "op" :council-level 6 :member-signature "sig:x"})]
-    (is (thrown-with-msg? clojure.lang.ExceptionInfo #"Lv7"
+    (is (thrown-with-msg? kerror/ExceptionInfo #"Lv7"
                           (require-g g (env leg))))))
 
 (deftest test-lv6-ok-for-provision-not-couple
   ;; Lv6 satisfies provision but not couple
   (require-g (full-gate "provision" 6) (env "provision"))  ;; ok
-  (is (thrown? clojure.lang.ExceptionInfo
+  (is (thrown? kerror/ExceptionInfo
                (require-g (full-gate "couple" 6) (env "couple")))))
 
 (deftest test-server-signer-refused
@@ -95,7 +95,7 @@
     (let [leg "vote"
           g (live-gate/make-live-gate
              {:leg leg :operator-did "op" :council-level 6 :member-signature sig})]
-      (is (thrown-with-msg? clojure.lang.ExceptionInfo #"member signature|operator"
+      (is (thrown-with-msg? kerror/ExceptionInfo #"member signature|operator"
                             (require-g g (env leg)))))))
 
 (deftest test-full-gate-admissible-every-leg
@@ -112,7 +112,7 @@
    "alloc:abel"))
 
 (deftest test-dispatch-live-refused-by-default
-  (is (thrown? clojure.lang.ExceptionInfo
+  (is (thrown? kerror/ExceptionInfo
                (prov/dispatch-live (intents) (live-gate/make-live-gate {:leg "provision"})
                                    :env {}))))
 
@@ -138,7 +138,7 @@
     {":ballot/voter" "did:m:c" ":ballot/choice" "yes" ":ballot/cast-at" 12}]))
 
 (deftest test-finalize-binding-refused-by-default
-  (is (thrown? clojure.lang.ExceptionInfo
+  (is (thrown? kerror/ExceptionInfo
                (vote-mod/finalize-binding (ballots) 0 100 (live-gate/make-live-gate {:leg "vote"})
                                           :env {}))))
 
@@ -149,7 +149,7 @@
 
 (deftest test-finalize-binding-timelock-still-strict
   ;; gated, but before the 48h window closes → the gate can't bypass the timelock
-  (is (thrown-with-msg? clojure.lang.ExceptionInfo #"timelock"
+  (is (thrown-with-msg? kerror/ExceptionInfo #"timelock"
                         (vote-mod/finalize-binding (ballots) 0 10 (full-gate "vote")
                                                    :env (env "vote")))))
 
@@ -160,7 +160,7 @@
    "alloc:abel" "did:m:abel"))
 
 (deftest test-write-live-refused-by-default
-  (is (thrown? clojure.lang.ExceptionInfo
+  (is (thrown? kerror/ExceptionInfo
                (book/write-live (ledger) (live-gate/make-live-gate {:leg "book"}) :env {}))))
 
 (deftest test-write-live-ok-when-gated-cash-zero
@@ -183,7 +183,7 @@
 
 (deftest test-commit-live-refused-without-gate
   (let [[ev em] (funded)]
-    (is (thrown? clojure.lang.ExceptionInfo
+    (is (thrown? kerror/ExceptionInfo
                  (couple-mod/commit-live ev em 8500000000 (live-gate/make-live-gate {:leg "couple"})
                                          :env {})))))
 
@@ -196,12 +196,12 @@
 (deftest test-commit-live-g2-refuses-unfunded-even-when-gated
   ;; gate passes (Lv7) but the G2 coupling gate refuses an unfunded cohort
   (let [[ev em] (unfunded)]
-    (is (thrown-with-msg? clojure.lang.ExceptionInfo #"G2"
+    (is (thrown-with-msg? kerror/ExceptionInfo #"G2"
                           (couple-mod/commit-live ev em 1000000 (full-gate "couple")
                                                   :env (env "couple"))))))
 
 (deftest test-commit-live-g2-refuses-over-earmark
   (let [[ev em] (funded)]  ;; earmark = 54_000_000_000
-    (is (thrown-with-msg? clojure.lang.ExceptionInfo #"exceeds funded earmark"
+    (is (thrown-with-msg? kerror/ExceptionInfo #"exceeds funded earmark"
                           (couple-mod/commit-live ev em 99000000000 (full-gate "couple")
                                                   :env (env "couple"))))))

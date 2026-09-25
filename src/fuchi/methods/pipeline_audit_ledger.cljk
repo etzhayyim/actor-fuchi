@@ -4,7 +4,7 @@
   Each line is one EDN map (facts only). No personal scores. cash≡0. live=false.
   Does not execute produce/book/couple live. Portable .cljc; I/O at #?(:clj) edge."
   (:require [fuchi.methods.public-person :as pp]
-            #?(:clj [clojure.java.io :as io])
+            #?(:clj [kotoba.io :as io])
             #?(:clj [kotoba.lang.text :as str])))
 
 (def PRIORITY-STACK pp/PRIORITY-STACK)
@@ -210,7 +210,7 @@
      "Append one event line to out/pipeline-audit-ledger.ednl. Returns path + event."
      [event]
      (let [f (ledger-path)
-           _ (.mkdirs (.getParentFile f))
+           _ (io/mkdirs (io/parent-file f))
            line (str (pr-str event) "\n")]
        (spit f line :append true)
        {:path (str f)
@@ -232,7 +232,7 @@
      "Read all audit events (vector). Empty if missing."
      []
      (let [f (ledger-path)]
-       (if-not (.exists f)
+       (if-not (io/exists? f)
          []
          (->> (str/split-lines (slurp f))
               (remove str/blank?)

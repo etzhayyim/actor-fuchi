@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-route
   "Tests for 扶持 (fuchi) route.cljc — 1:1 port of methods/test_route.py (clojure.test)."
-  (:require [kotoba.test :refer [deftest is]]
+  (:require [kotoba.lang.error :as kerror] [kotoba.test :refer [deftest is]]
             [fuchi.methods.route :as r]))
 
 (defn- env
@@ -26,14 +26,14 @@
 
 (deftest test-cash-line-is-unrepresentable
   (doseq [bad ["cash" "stipend" "cash-disbursement"]]
-    (is (thrown-with-msg? clojure.lang.ExceptionInfo #"cash≡0" (r/route-envelope [(env bad 1)]))
+    (is (thrown-with-msg? kerror/ExceptionInfo #"cash≡0" (r/route-envelope [(env bad 1)]))
         (str bad " line must be refused (cash≡0)"))))
 
 (deftest test-nonzero-cash-field-is-refused
-  (is (thrown-with-msg? clojure.lang.ExceptionInfo #"cash≡0" (r/route-envelope [(env "food" 1 5)]))))
+  (is (thrown-with-msg? kerror/ExceptionInfo #"cash≡0" (r/route-envelope [(env "food" 1 5)]))))
 
 (deftest test-unknown-line-has-no-rail
-  (is (thrown-with-msg? clojure.lang.ExceptionInfo #"G3" (r/route-envelope [(env "yacht" 1)]))))
+  (is (thrown-with-msg? kerror/ExceptionInfo #"G3" (r/route-envelope [(env "yacht" 1)]))))
 
 ;; ── in-kind-coverage ────────────────────────────────────────────────────────
 (deftest test-fully-in-kind-is-100pct

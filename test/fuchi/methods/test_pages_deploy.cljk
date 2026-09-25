@@ -3,7 +3,7 @@
             [kotoba.lang.text :as str]
             [fuchi.methods.pages-deploy :as dep]
             [fuchi.methods.public-person :as pp]
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 (deftest test-default-refuse
   (let [st (dep/default-refuse-status {})
@@ -81,9 +81,9 @@
      (let [pkg (dep/write-deploy-package! {})
            st (:deploy-status pkg)
            rb-path (:deploy-runbook pkg)]
-       (is (.exists (io/file (:index pkg))))
-       (is (.exists (io/file (:wrangler pkg))))
-       (is (.exists (io/file rb-path)))
+       (is (io/exists? (io/file (:index pkg))))
+       (is (io/exists? (io/file (:wrangler pkg))))
+       (is (io/exists? (io/file rb-path)))
        (is (false? (:deployed pkg)))
        (is (false? (:wrangler-invoked pkg)))
        (is (true? (:package-ready pkg)))

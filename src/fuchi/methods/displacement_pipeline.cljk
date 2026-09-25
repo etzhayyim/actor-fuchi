@@ -14,7 +14,7 @@
             [fuchi.methods.public-person :as pp]
             #?(:clj [fuchi.methods.pages-deploy :as pages-dep])
             #?(:clj [fuchi.methods.edn :as edn])
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 (def PRIORITY-STACK pp/PRIORITY-STACK)
 
@@ -232,7 +232,7 @@
            actor (or (System/getenv "FUCHI_ACTOR_DIR")
                      (io/file "."))
            outd (io/file actor "out")
-           _ (.mkdirs outd)
+           _ (io/mkdirs outd)
            _ (spit (io/file outd "displacement-scorecard.md") (sc/scorecard-md scard))
            _ (spit (io/file outd "displacement-scorecard.edn") (pr-str scard))
            paths {:md (str (io/file outd "displacement-scorecard.md"))

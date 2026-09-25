@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-displacement-pipeline
   "Pipeline run!/write-all! tests — portable under bb and nbb."
-  (:require [kotoba.test :refer [deftest is]]
+  (:require [kotoba.io :as kio] [kotoba.test :refer [deftest is]]
             [kotoba.lang.text :as str]
             [fuchi.methods.displacement-pipeline :as pipe]))
 
@@ -8,7 +8,7 @@
    (def ^:private fs (js/require "node:fs")))
 
 (defn- path-exists? [p]
-  #?(:clj (.exists (java.io.File. (str p)))
+  #?(:clj (kio/exists? (kio/file (str p)))
      :cljs (.existsSync fs (str p))))
 
 (defn- read-text [p]

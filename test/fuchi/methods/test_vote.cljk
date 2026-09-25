@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-vote
   "Tests for 扶持 (fuchi) vote.cljc — 1:1 port of methods/test_vote.py (clojure.test)."
-  (:require [kotoba.test :refer [deftest is]]
+  (:require [kotoba.lang.error :as kerror] [kotoba.test :refer [deftest is]]
             [fuchi.methods.vote :as v]))
 
 (defn- B [did choice cast-at] (v/make-ballot {:voter-did did :choice choice :cast-at cast-at}))
@@ -26,7 +26,7 @@
 
 (deftest test-finalize-raises-before-timelock
   (let [b (ballots [["did:m:a" "yes"] ["did:m:b" "yes"]])]
-    (is (thrown-with-msg? clojure.lang.ExceptionInfo #"timelock" (v/finalize b 1000 1010 48)))))
+    (is (thrown-with-msg? kerror/ExceptionInfo #"timelock" (v/finalize b 1000 1010 48)))))
 
 (deftest test-rejected-without-quorum
   (let [b (ballots [["did:m:a" "yes"]])
@@ -40,17 +40,17 @@
 
 (deftest test-one-sbt-one-vote-rejects-duplicate
   (let [b (v/cast [] (B "did:m:a" "yes" 1001))]
-    (is (thrown-with-msg? clojure.lang.ExceptionInfo #"1 SBT = 1 vote" (v/cast b (B "did:m:a" "no" 1002))))))
+    (is (thrown-with-msg? kerror/ExceptionInfo #"1 SBT = 1 vote" (v/cast b (B "did:m:a" "no" 1002))))))
 
 (deftest test-ballot-weight-must-be-one
-  (is (thrown-with-msg? clojure.lang.ExceptionInfo #"1 SBT = 1 vote"
+  (is (thrown-with-msg? kerror/ExceptionInfo #"1 SBT = 1 vote"
                         (v/make-ballot {:voter-did "did:m:a" :choice "yes" :cast-at 1001 :weight 5}))))
 
 (deftest test-server-voter-unrepresentable
-  (is (thrown-with-msg? clojure.lang.ExceptionInfo #"(G9|G4)" (v/make-ballot {:voter-did "server" :choice "yes" :cast-at 1001}))))
+  (is (thrown-with-msg? kerror/ExceptionInfo #"(G9|G4)" (v/make-ballot {:voter-did "server" :choice "yes" :cast-at 1001}))))
 
 (deftest test-ballot-server-key-refused
-  (is (thrown-with-msg? clojure.lang.ExceptionInfo #"no-server-key"
+  (is (thrown-with-msg? kerror/ExceptionInfo #"no-server-key"
                         (v/make-ballot {:voter-did "did:m:a" :choice "yes" :cast-at 1001 :server-held-key true}))))
 
 (deftest test-out-of-window-ballot-not-counted

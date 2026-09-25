@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-couple
   "Tests for 扶持 (fuchi) couple.cljc — 1:1 port of methods/test_couple.py (clojure.test)."
-  (:require [kotoba.lang.text] [kotoba.test :refer [deftest is]]
+  (:require [kotoba.lang.error :as kerror] [kotoba.lang.text] [kotoba.test :refer [deftest is]]
             [fuchi.methods.couple :as c]))
 
 (defn- event [& {:as over}]
@@ -23,7 +23,7 @@
   (is (= c/TITHE-BPS 1000)))
 
 (deftest test-earmark-construction-rejects-inexact-split
-  (is (thrown-with-msg? clojure.lang.ExceptionInfo #"(?i)split"
+  (is (thrown-with-msg? kerror/ExceptionInfo #"(?i)split"
                         (c/make-cohort-earmark {:cohort-id "c" :displacing-actor "sanae"
                                                 :gross-usd-micros-yr 100 :tithe-usd-micros 5
                                                 :earmark-usd-micros-yr 90 :funded true}))))
@@ -53,7 +53,7 @@
     (is (and (true? (get g "admissible")) (= (get g "headroom") 0)))))
 
 (deftest test-negative-surplus-refused
-  (is (thrown? clojure.lang.ExceptionInfo
+  (is (thrown? kerror/ExceptionInfo
                (c/make-displacement-event {:displacing-actor "sanae" :cohort-id "c"
                                            :displaced-count 1 :surplus-usd-micros-yr -5}))))
 

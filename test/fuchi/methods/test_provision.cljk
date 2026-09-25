@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-provision
   "Tests for 扶持 (fuchi) provision.cljc — 1:1 port of methods/test_provision.py (clojure.test)."
-  (:require [kotoba.lang.text] [kotoba.test :refer [deftest is]]
+  (:require [kotoba.lang.error :as kerror] [kotoba.lang.text] [kotoba.test :refer [deftest is]]
             [fuchi.methods.provision :as p]
             [fuchi.methods.route :as route]))
 
@@ -38,19 +38,19 @@
     (is (false? (:published i)))))
 
 (deftest test-published-true-is-refused
-  (is (thrown-with-msg? clojure.lang.ExceptionInfo #"G10"
+  (is (thrown-with-msg? kerror/ExceptionInfo #"G10"
                         (p/make-provisioning-intent {:alloc-id "a" :rail-kind "food-mitsuho"
                                                      :provider-did "did:..:mitsuho" :provider-kind "actor"
                                                      :imputed-usd-micros-yr 1 :published true}))))
 
 (deftest test-cash-intent-is-refused
-  (is (thrown-with-msg? clojure.lang.ExceptionInfo #"(?i)cash"
+  (is (thrown-with-msg? kerror/ExceptionInfo #"(?i)cash"
                         (p/make-provisioning-intent {:alloc-id "a" :rail-kind "food-mitsuho"
                                                      :provider-did "did:..:mitsuho" :provider-kind "actor"
                                                      :imputed-usd-micros-yr 1 :cash-usd-micros 5}))))
 
 (deftest test-server-key-intent-is-refused
-  (is (thrown-with-msg? clojure.lang.ExceptionInfo #"no-server-key"
+  (is (thrown-with-msg? kerror/ExceptionInfo #"no-server-key"
                         (p/make-provisioning-intent {:alloc-id "a" :rail-kind "food-mitsuho"
                                                      :provider-did "did:..:mitsuho" :provider-kind "actor"
                                                      :imputed-usd-micros-yr 1 :server-held-key true}))))

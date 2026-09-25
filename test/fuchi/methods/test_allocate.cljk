@@ -1,6 +1,6 @@
 (ns fuchi.methods.test-allocate
   "Tests for 扶持 (fuchi) allocate.cljc — 1:1 port of methods/test_allocate.py (clojure.test)."
-  (:require [kotoba.test :refer [deftest is]]
+  (:require [kotoba.lang.error :as kerror] [kotoba.test :refer [deftest is]]
             [fuchi.methods.allocate :as a]))
 
 (defn- M [m] (a/make-maintainer m))
@@ -60,20 +60,20 @@
 
 (deftest test-equity-instrument-is-unrepresentable
   (doseq [bad ["equity" ":equity" "debt" "revenue-share" "carry" "dividend" "exit"]]
-    (is (thrown? clojure.lang.ExceptionInfo (a/assert-instrument bad)) (str bad " must be rejected (G1)"))))
+    (is (thrown? kerror/ExceptionInfo (a/assert-instrument bad)) (str bad " must be rejected (G1)"))))
 
 (deftest test-allocate-refuses-investment-instrument
-  (is (thrown-with-msg? clojure.lang.ExceptionInfo #"G1"
+  (is (thrown-with-msg? kerror/ExceptionInfo #"G1"
                         (a/allocate (cohort) 30000000000 0 "equity"))))
 
 (deftest test-allocation-construction-refuses-cash
-  (is (thrown-with-msg? clojure.lang.ExceptionInfo #"(?i)cash"
+  (is (thrown-with-msg? kerror/ExceptionInfo #"(?i)cash"
                         (a/make-allocation {:maintainer-did "d" :instrument "sustenance" :weight 1.0
                                             :share 1.0 :priority-rank 1 :floor-usd-micros-yr 1000
                                             :cash-usd-micros 5}))))
 
 (deftest test-allocation-construction-refuses-server-key
-  (is (thrown-with-msg? clojure.lang.ExceptionInfo #"no-server-key"
+  (is (thrown-with-msg? kerror/ExceptionInfo #"no-server-key"
                         (a/make-allocation {:maintainer-did "d" :instrument "sustenance" :weight 1.0
                                             :share 1.0 :priority-rank 1 :floor-usd-micros-yr 1000
                                             :server-held-key true}))))
@@ -81,4 +81,4 @@
 ;; ── G5: payoff attribution ──────────────────────────────────────────────────
 (deftest test-maintainer-cannot-own-payoff
   (let [c (conj (cohort) (M {:did "did:m:x" :tenure-months 12 :hazard-permille 1000 :owns-payoff true}))]
-    (is (thrown-with-msg? clojure.lang.ExceptionInfo #"G5" (a/allocate c 30000000000)))))
+    (is (thrown-with-msg? kerror/ExceptionInfo #"G5" (a/allocate c 30000000000)))))

@@ -1,5 +1,5 @@
 (ns fuchi.methods.social-test
-  (:require [kotoba.test :refer [deftest is testing]]
+  (:require [kotoba.lang.error :as kerror] [kotoba.test :refer [deftest is testing]]
             [fuchi.methods.social :as social]))
 
 (deftest dry-run-publication-is-non-adjudicating
@@ -16,10 +16,10 @@
 
 (deftest publication-gates-source-provenance-and-live-mode
   (testing "two nonblank sources are required"
-    (is (thrown-with-msg? clojure.lang.ExceptionInfo
+    (is (thrown-with-msg? kerror/ExceptionInfo
                           #"needs ≥ 2 citations"
                           (social/draft-observation-post "subject" "body" ["one"]))))
   (testing "live publication remains refused at R0"
-    (is (thrown-with-msg? clojure.lang.ExceptionInfo
+    (is (thrown-with-msg? kerror/ExceptionInfo
                           #"Only dry-run posts"
                           (social/build-live {})))))

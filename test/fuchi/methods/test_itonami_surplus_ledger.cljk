@@ -2,7 +2,7 @@
   (:require [kotoba.test :refer [deftest is]]
             [fuchi.methods.itonami-surplus-ledger :as led]
             [fuchi.methods.public-person :as pp]
-            #?(:clj [clojure.java.io :as io])
+            #?(:clj [kotoba.io :as io])
             #?(:clj [fuchi.methods.edn :as edn])))
 
 #?(:clj
@@ -28,7 +28,7 @@
 #?(:clj
    (deftest test-write-ledger
      (let [paths (led/write-ledger!)]
-       (is (.exists (io/file (:path paths))))
+       (is (io/exists? (io/file (:path paths))))
        (is (false? (:live paths)))
        (is (= 0 (:cash-usd-micros paths)))
        (is (false? (:deployed paths)))

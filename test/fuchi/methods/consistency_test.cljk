@@ -10,7 +10,7 @@
   (:require [kotoba.test :refer [deftest is]]
             [kotoba.lang.edn]
             [kotoba.lang.text :as str]
-            #?(:clj [clojure.java.io :as io])
+            #?(:clj [kotoba.io :as io])
             [fuchi.methods.edn :as edn]))
 
 ;; ── fixture locators (*file*-relative; repo root + actor root) ────────────────
@@ -27,17 +27,17 @@
 (deftest test-manifest-cells-match-cell-dirs
   #?(:clj
      (let [declared (set (map #(get % "name") (get (manifest) "cells")))
-           dirs (set (->> (.listFiles (io/file actor-dir "src" "fuchi" "cells"))
-                          (filter #(.isDirectory %))
-                          (map #(.getName %))
+           dirs (set (->> (io/list-files (io/file actor-dir "src" "fuchi" "cells"))
+                          (filter #(io/directory? %))
+                          (map #(io/file-name %))
                           (remove #(str/starts-with? % "__"))))]
        (is (= declared dirs) (str "manifest " declared " != dirs " dirs)))))
 
 (deftest test-manifest-lexicons-match-lex-files
   #?(:clj
      (let [declared (set (map #(get % "id") (get (manifest) "lexiconNamespaces")))
-           files (set (->> (.listFiles (io/file actor-dir "lex"))
-                           (filter #(str/ends-with? (.getName %) ".edn"))
+           files (set (->> (io/list-files (io/file actor-dir "lex"))
+                           (filter #(str/ends-with? (io/file-name %) ".edn"))
                            (map #(get (edn/load-edn %) ":id"))))]
        (is (every? files declared)
            (str "manifest declares missing lexicons: "
@@ -56,8 +56,8 @@
      (let [pointer (get-in (manifest) ["references" "schema"])
            relative (str/replace-first pointer #"^/" "")
            p (io/file actor-dir relative)]
-       (is (.exists p) (str p))
-       (is (= (.getCanonicalFile schema-file) (.getCanonicalFile p))))))
+       (is (io/exists? p) (str p))
+       (is (= (io/canonical-file schema-file) (io/canonical-file p))))))
 
 (deftest test-every-seed-maintainer-has-envelope-or-is-excluded
   #?(:clj
