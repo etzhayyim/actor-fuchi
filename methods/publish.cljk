@@ -9,7 +9,7 @@
 (def here (.dirname path *file*))
 (def actor-root (.resolve path here ".."))
 (def runtime-cljs
-  (.resolve path actor-root ".." ".." "com-junkawasaki" "kototama" "lib" "actor" "publish.cljs"))
+  (.resolve path actor-root ".." ".." "com-junkawasaki" "kototama" "lib" "actor" "publish.cljk"))
 
 (defn- exists? [p] (.existsSync fs p))
 
